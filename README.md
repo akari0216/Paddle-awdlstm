@@ -7,10 +7,10 @@
 
 ## 模型概述
 <p align="center">
-    <img src="images/model.jpg" width="100%" />
+    <img src="images/model.png" width="100%" />
 </p>
 
 ## 原论文效果
 <p align="center">
-    <img src="images/ag_news.jpg" width="100%" />
+    <img src="images/ag_news.png" width="100%" />
 </p>
