@@ -3,7 +3,7 @@ import paddle.nn as nn
 import warnings
 from collections import OrderedDict
 
-__all__ = ['dropout_mask', 'RNNDropout', 'WeightDropout', 'EmbeddingDropout', 'AWD_LSTM', 'awd_lstm_lm_split',
+__all__ = ['LinearDecoder','dropout_mask', 'RNNDropout', 'WeightDropout', 'EmbeddingDropout', 'AWD_LSTM', 'awd_lstm_lm_split',
            'awd_lstm_lm_config', 'awd_lstm_clas_split', 'awd_lstm_clas_config']
 
 
@@ -201,7 +201,7 @@ def awd_lstm_lm_split(model):
     return [p for p in groups.parameters()]
 
 # Cell
-awd_lstm_lm_config = dict(emb_sz=400, n_hid=1152, n_layers=3, pad_token=1, bidir="forward", output_p=0.1,
+awd_lstm_lm_config = dict(emb_sz=400, n_hid=1152, n_layers=3, pad_token=1, bidir=False, output_p=0.1,
                           hidden_p=0.15, input_p=0.25, embed_p=0.02, weight_p=0.2, tie_weights=True, out_bias=True)
 
 # Cell
@@ -213,5 +213,5 @@ def awd_lstm_clas_split(model):
     return [p for p in groups.parameters()]
 
 # Cell
-awd_lstm_clas_config = dict(emb_sz=400, n_hid=1152, n_layers=3, pad_token=1, bidir="forward", output_p=0.4,
+awd_lstm_clas_config = dict(emb_sz=400, n_hid=1152, n_layers=3, pad_token=1, bidir=False, output_p=0.4,
                             hidden_p=0.3, input_p=0.4, embed_p=0.05, weight_p=0.5)
