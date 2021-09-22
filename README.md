@@ -17,10 +17,11 @@
 
 ## 开始
 ### 1.预训练权重下载
-链接：https://pan.baidu.com/s/1xyZ05sC8Cf6Uo9WH9IHxaQ 
-提取码：rgmx
+链接：https://pan.baidu.com/s/1b4-HBEQ-lUqu2HeZGnnWFA 
+提取码：pbc7
 
 Wikitext-103是超过 1 亿个语句的数据合集，全部从维基百科的 Good 与 Featured 文章中提炼出来。广泛用于语言建模，当中 包括 fastai 库和 ULMFiT 算法中经常用到的预训练模型。该权重为基于此数据集上预训练后得到的
+权重包含了fwd和bwd两个权重
 
 
 ### 2.模型微调
