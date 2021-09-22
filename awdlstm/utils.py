@@ -52,7 +52,7 @@ def get_language_model(arch, vocab_sz, config=None, drop_mult=1.):
 # Cell
 def _pad_tensor(t, bs):
     if t.shape[0] < bs:
-        s = paddle.zeros(shape=[bs-t.shape(0),*t.shape[1:]])
+        s = paddle.zeros(shape=[bs-t.shape[0],*t.shape[1:]])
         return paddle.concat([t,s])
     return t
 
@@ -67,7 +67,7 @@ class SentenceEncoder(nn.Layer):
     def reset(self):getattr(self.module,"reset",noop)()
 
     def forward(self,input):
-        bs,sl = input.shape()
+        bs,sl = input.shape
         self.reset()
         mask = input == self.pad_idx
         outs,masks = [],[]
@@ -89,7 +89,7 @@ def masked_concat_pool(output, mask, bptt):
     avg_pool = output.masked_fill(mask[:, :, None], 0).sum(dim=1)
     avg_pool.div_(lens.type(avg_pool.dtype)[:,None])
     max_pool = output.masked_fill(mask[:,:,None], -float('inf')).max(dim=1)[0]
-    x = paddle.concat([output[paddle.arange(0, output.shape(0)),-last_lens-1], max_pool, avg_pool], axis = 1) #Concat pooling.
+    x = paddle.concat([output[paddle.arange(0, output.shape[0]),-last_lens-1], max_pool, avg_pool], axis = 1) #Concat pooling.
     return x
 
 # Cell
