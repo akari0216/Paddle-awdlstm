@@ -3,26 +3,8 @@ import paddle.nn as nn
 import warnings
 from collections import OrderedDict
 
-__all__ = ['LinearDecoder','dropout_mask', 'RNNDropout', 'WeightDropout', 'EmbeddingDropout', 'AWD_LSTM', 'awd_lstm_lm_split',
+__all__ = ['dropout_mask', 'RNNDropout', 'WeightDropout', 'EmbeddingDropout', 'AWD_LSTM', 'awd_lstm_lm_split',
            'awd_lstm_lm_config', 'awd_lstm_clas_split', 'awd_lstm_clas_config']
-
-
-# Cell
-class LinearDecoder(nn.Layer):
-    "To go on top of a RNNCore module and create a Language Model."
-    initrange=0.1
-
-    def __init__(self, n_out, n_hid, output_p=0.1, tie_encoder=None, bias=True):
-        super(LinearDecoder,self).__init__()
-        self.decoder = nn.Linear(n_hid, n_out, bias_attr=bias)
-        self.decoder.weight.set_value(paddle.uniform(shape=[n_hid,n_out],min=-self.initrange,max=self.initrange))
-        self.output_dp = RNNDropout(output_p)
-        if bias: self.decoder.bias.set_value(paddle.zeros(shape=[n_out]))
-        if tie_encoder: self.decoder.weight = tie_encoder.weight
-
-    def forward(self, input):
-        dp_inp = self.output_dp(input)
-        return self.decoder(dp_inp), input, dp_inp
 
 
 #Cell
@@ -138,8 +120,8 @@ class AWD_LSTM(nn.Layer):
         self.encoder.weight.set_value(paddle.uniform(shape=self.encoder._size,min=-self.initrange,max=self.initrange))
         self.input_dp = RNNDropout(input_p)
         self.hidden_dps = nn.LayerList([RNNDropout(hidden_p) for l in range(n_layers)])
-        enc = self.encoder if tie_weights else None
-        self.decoder = LinearDecoder(vocab_sz,emb_sz,output_p,tie_encoder=enc,bias=bias)
+        # enc = self.encoder if tie_weights else None
+        # self.decoder = LinearDecoder(vocab_sz,emb_sz,output_p,tie_encoder=enc,bias=bias)
         self.reset()
 
     def forward(self, inp, from_embeds=False):
