@@ -77,14 +77,14 @@ class EmbeddingDropout(nn.Layer):
 
     def forward(self, words, scale=None):
         if self.training and self.embed_p != 0:
-            size = (self.emb.weight.size(0),1)
+            size = (self.emb.weight.shape[0],1)
             mask = dropout_mask(self.emb.weight.detach(), size, self.embed_p)
             masked_embed = self.emb.weight * mask
         else: masked_embed = self.emb.weight
         if scale: masked_embed.mul_(scale)
         padding_idx = self.emb._padding_idx
         if padding_idx is None:padding_idx = -1
-        return nn.functional.embedding(words, masked_embed, padding_idx, self.emb._sparse)
+        return nn.functional.embedding(words.astype("int64"), masked_embed, padding_idx, self.emb._sparse)
 
 # Cell
 class AWD_LSTM(nn.Layer):
@@ -132,8 +132,14 @@ class AWD_LSTM(nn.Layer):
         new_hidden = []
         for l, (rnn,hid_dp) in enumerate(zip(self.rnns, self.hidden_dps)):
             output, new_h = rnn(output, self.hidden[l])
-            new_hidden.append(new_h)
+            new_hidden.append((new_h[0].detach(), new_h[1].detach()))
             if l != self.n_layers - 1: output = hid_dp(output)
+
+        # for l in range(len(self.rnns)):
+        #     output, new_h = self.rnns[l](output, self.hidden[l])
+        #     new_hidden.append(new_h)
+        #     if l != self.n_layers - 1: output = self.hidden_dps[l](output)
+
         self.hidden = new_hidden
         return output
 
@@ -143,16 +149,20 @@ class AWD_LSTM(nn.Layer):
 
     def _one_rnn(self, n_in, n_out, bidir, weight_p, l):
         "Return one of the inner rnn"
+        # direct = "bidirectional" if bidir else "forward"
+        # lstm = nn.LSTM(n_in, n_out, 1, time_major=False, direction=direct)
+        # rnn = nn.LayerList()
+        # #lstm下paddle会比torch多出'0.cell.weight_ih', '0.cell.weight_hh', '0.cell.bias_ih', '0.cell.bias_hh'4个参数，故手动构造
+        # for layer in lstm.state_dict().keys():
+        #     if layer in ['weight_ih_l0', 'weight_hh_l0', 'bias_ih_l0', 'bias_hh_l0']:
+        #         if hasattr(lstm,layer):
+        #             w = getattr(lstm,layer)
+        #             parameter = paddle.create_parameter(shape=w.shape,dtype=str(w.numpy().dtype),default_initializer=nn.initializer.Assign(w))
+        #             rnn.add_parameter(layer,parameter)
+        # return WeightDropout(rnn, weight_p)
+
         direct = "bidirectional" if bidir else "forward"
-        lstm = nn.LSTM(n_in, n_out, 1, time_major=False, direction=direct)
-        rnn = nn.LayerList()
-        #lstm下paddle会比torch多出'0.cell.weight_ih', '0.cell.weight_hh', '0.cell.bias_ih', '0.cell.bias_hh'4个参数，故手动构造
-        for layer in lstm.state_dict().keys():
-            if layer in ['weight_ih_l0', 'weight_hh_l0', 'bias_ih_l0', 'bias_hh_l0']:
-                if hasattr(lstm,layer):
-                    w = getattr(lstm,layer)
-                    parameter = paddle.create_parameter(shape=w.shape,dtype=str(w.numpy().dtype),default_initializer=nn.initializer.Assign(w))
-                    rnn.add_parameter(layer,parameter)
+        rnn = nn.LSTM(n_in, n_out, 1, time_major=False, direction=direct)
         return WeightDropout(rnn, weight_p)
 
     def _one_hidden(self, l):
@@ -166,7 +176,7 @@ class AWD_LSTM(nn.Layer):
             nh = (self.n_hid if l != self.n_layers - 1 else self.emb_sz) // self.n_dir
             s = paddle.zeros(shape=[self.n_dir, bs-self.bs, nh])
             return tuple(paddle.concat([h, s], axis=1) for h in self.hidden[l])
-        if self.bs > bs: return (self.hidden[l][0][:,:bs].contiguous(), self.hidden[l][1][:,:bs].contiguous())
+        if self.bs > bs: return (self.hidden[l][0][:,:bs], self.hidden[l][1][:,:bs])
         return self.hidden[l]
 
     def reset(self):
