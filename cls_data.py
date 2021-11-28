@@ -18,10 +18,11 @@ from paddlenlp.datasets import MapDataset
 import pandas as pd
 import numpy as np
 from paddlenlp.data import Pad, Stack, Tuple
-from utils import get_language_model, get_text_classifier
+from utils import get_language_model, get_text_classifier, SlantedTriangularLR
 from model import *
 import paddle.nn.functional as F
 import paddlenlp
+import random
 
 """
 本文件以lm为例
@@ -163,7 +164,6 @@ class CLSTokenizer:
     cumlens = 0
     totlen = 0
 
-
     def __init__(self, text, label, bs=2, seq_len=72):
         self.label = label
         self.bs = bs
@@ -178,33 +178,10 @@ class CLSTokenizer:
             self.full_tokens.append(tr)
         self.totlen = len(self.full_tokens)
 
-
-
-        # print(self.full_lens)
-        # exit()
-        # print(len(text))
-        # exit()
-
-        # corpus = ((sum(self.full_lens)-1) / bs) * bs
-        # self.bl = corpus//bs # bl stands for batch length
-        # self.n_batches = self.bl//(seq_len) + int(self.bl%seq_len!=0)
-        # self.n = int(self.n_batches * bs)
-
-        # print(len(self.full_lens), self.full_lens[:3])
-        # self.cumlens = np.cumsum(([0] + self.full_lens))
-        # self.totlen = self.cumlens[-1]
-
-        # print("cumlens", self.cumlens.shape, self.totlen)
-
-        # self.last_len = self.bl - (self.n_batches - 1) * seq_len
-
         count = Counter(char_tokens)
         self.vocab = self.make_vocab(count)
         self.vocab_size = len(self.vocab)
         self.o2i = defaultdict(int, {v: k for k, v in enumerate(self.vocab) if v != 'xxfake'})
-
-        # print("vocab size: ", self.vocab_size)
-        # exit()
 
         self.full_tokens = self.convert_token_id(self.full_tokens)
         # print(self.vocab_size, len(self.full_tokens), np.asarray(self.full_tokens).shape, self.full_tokens[0], self.totlen)
@@ -249,10 +226,75 @@ class CLSTokenizer:
     def get_item(self, idx):
         return np.array(self.full_tokens[idx]), np.array(self.label[idx], dtype="int64")
 
+
+class TestCLSTokenizer:
+    special_toks = default_text_spec_tok
+    vocab = None
+    vocab_size = None
+    o2i = None
+    spacy_tok = None
+    full_tokens = []
+    full_lens = []
+    cumlens = 0
+    totlen = 0
+
+    def __init__(self, text, label, vocab, vocab_size, o2i, bs=2, seq_len=72):
+        self.label = label
+        self.bs = bs
+        self.seq_len = seq_len
+        self.vocab = vocab
+        self.vocab_size = vocab_size
+        self.o2i = o2i
+        self.spacy_tok = SpacyTokenizer()
+        tok_res = self.get_spacy_toks(text)
+        char_tokens = []
+        self.full_tokens = []
+        for tr in tok_res:
+            char_tokens += tr
+            self.full_lens.append(len(tr))
+            self.full_tokens.append(tr)
+        self.totlen = len(self.full_tokens)
+        self.full_tokens = self.convert_token_id(self.full_tokens)
+
+    def get_spacy_toks(self, text):
+        tok_res = self.spacy_tok(maps(*defaults_text_proc_rules, text))
+        return (list(maps(*defaults_text_postproc_rules, o)) for o in tok_res)
+
+    def __call__(self, o):
+        words = self.get_spacy_toks(o)
+        return self.convert_token_id(words)
+
+    def convert_token_id(self, words):
+        all = []
+        for o_ in list(words):
+            tmp = []
+            for x in o_:
+                tmp.append(self.o2i[x])
+            all.append(tmp)
+        return all
+
+    def decode(self, o):
+        return [self.vocab[o_] for o_ in o]
+
+    def create_idxs(self):
+        return [i for i in range(self.totlen)]
+
+    def get_item(self, idx):
+        return np.array(self.full_tokens[idx]), np.array(self.label[idx], dtype="int64")
+
+
 class CLSDateset(Dataset):
-    def __init__(self, data, is_test=False):
-        self._data = data
+    def __init__(self, data, is_val=False, val_ratio=0.1, is_test=False):
+        if is_test:
+            self._data = data
+        else:
+            split = int(len(data) * (1 - val_ratio))
+            if is_val:
+                self._data = data[split:]
+            else:
+                self._data = data[:split]
         self._is_test = is_test
+
     def __len__(self):
         return len(self._data)
     def __getitem__(self, idx):
@@ -261,10 +303,6 @@ class CLSDateset(Dataset):
 
 def convert_example(example, tokenizer):
     inputs, labels = tokenizer.get_item(example)
-
-    # print(paddle.to_tensor(inputs), paddle.to_tensor(labels))
-    # print("=====>")
-
     return paddle.to_tensor(inputs), paddle.to_tensor(labels)
 
 def create_dataloader(dataset,
@@ -336,8 +374,8 @@ def load_encoder(model,encoder_path):
 ###########################################下面是测试#########################################
 epochs = 1
 BATCH_SIZE = 64
-pdparams = "/home/aistudio/awdlstm2/config/wt103-fwd2.pdparams"
-encoder_path = "encoder.pdparams"
+pdparams = "/d/hulei/pd_match/papers_reproduce/Paddle-awdlstm/new_down/Paddle-awdlstm/wt103-fwd2.pdparams"
+encoder_path = "/d/hulei/pd_match/papers_reproduce/Paddle-awdlstm/new_down/Paddle-awdlstm/unfreeze_lm.pdparams"
 class_dict = {
     "1": "World",
     "2": "Sports",
@@ -346,7 +384,7 @@ class_dict = {
 }
 labels = []
 texts = []
-with open("/home/aistudio/awdlstm2/config/ag_news/ag_news/train.csv", "r", encoding="utf-8") as f:
+with open("./config/ag_news/ag_news/train.csv", "r", encoding="utf-8") as f:
     for line in f:
         s = line.split('","')
         label, title, text = s[0], s[1], s[2]
@@ -356,17 +394,12 @@ with open("/home/aistudio/awdlstm2/config/ag_news/ag_news/train.csv", "r", encod
         texts.append(text)
 
 tokenizer = CLSTokenizer(texts, labels, bs=BATCH_SIZE)
-# print(tokenizer(["business is not sports"]))
-# print(tokenizer.get_item(5998))
-# print(convert_example(1, tokenizer))
-
-# pd_chunk = PadChunk()
-# input1, label1 = tokenizer.get_item(5998)
-# input2, label2 = tokenizer.get_item(5999)
-# print(pd_chunk([input1, input2]))
-
-baseset = CLSDateset(tokenizer.create_idxs())
-ds = MapDataset(baseset)
+tok_idx = tokenizer.create_idxs()
+random.shuffle(tok_idx)
+trainset = CLSDateset(tok_idx, is_val=False, val_ratio=0.1, is_test=False)
+valset = CLSDateset(tok_idx, is_val=True, val_ratio=0.1, is_test=False)
+train_ds = MapDataset(trainset)
+val_ds = MapDataset(valset)
 
 trans_func = partial(convert_example, tokenizer=tokenizer)
 batchify_fn = lambda samples, fn=Tuple(
@@ -375,10 +408,17 @@ batchify_fn = lambda samples, fn=Tuple(
 ): [data for data in fn(samples)]
 
 train_data_loader = create_dataloader(
-    ds, 
+    train_ds,
     mode='train', 
     batch_size=BATCH_SIZE, 
     batchify_fn=batchify_fn, 
+    trans_fn=trans_func)
+
+val_data_loader = create_dataloader(
+    val_ds,
+    mode='train',
+    batch_size=BATCH_SIZE,
+    batchify_fn=batchify_fn,
     trans_fn=trans_func)
 
 cls_num = 4
@@ -402,7 +442,6 @@ def evaluate(model, criterion, metric, data_loader):
         loss = criterion(output.reshape((-1, output.shape[-1])), label_ids.flatten().astype("int64"))
         losses.append(loss.numpy())
 
-                
         x1 = paddle.argmax(output, -1).flatten()
         acc =  (x1 == label_ids.flatten()).astype("float32").mean()
         acc_s .append(acc)
@@ -414,14 +453,9 @@ def evaluate(model, criterion, metric, data_loader):
 #load encoder
 model = load_encoder(model,encoder_path)
 
-# Adam优化器
-optimizer = paddle.optimizer.AdamW(
-    learning_rate=2.5e-2,
-    parameters=model.parameters())
 # 交叉熵损失函数
 criterion = paddle.nn.loss.CrossEntropyLoss()
 metric = paddle.metric.Accuracy()
-
 
 
 def train(
@@ -429,23 +463,57 @@ def train(
     train_data_loader,
     epochs=1,
     lr=2.5e-3,
-    optimizer=optimizer,
     criterion=criterion,
     metric=metric,
-    freezing=False,
-    unfreezing_num=0):
-    if freezing == True:
-        print("freezing")
-        freezed_state_dict = {}
-        state_dict = model.state_dict()
-        for key in state_dict.keys():
-            freezed_state_dict[key] = paddle.to_tensor(state_dict[key].clone(),stop_gradient=True)
-        model.set_state_dict(freezed_state_dict)
+    freezing=None,
+    pre_train=None,
+    save_model_name = "test_cls.pdparams"):
+
+    if pre_train is not None:
+        print("loaded pre_train", pre_train)
+        state_dict = paddle.load(pre_train)
+        model.set_state_dict(state_dict)
+
+    if freezing is not None:
+        print("freezing to last layer")
+
+        if freezing == -1:
+            for param in model.parameters():
+                if param.name.startswith("linear_1"):
+                    param.trainable = True
+                else:
+                    param.trainable = False
+        elif freezing == -2:
+            for param in model.parameters():
+                if param.name.startswith("linear_1") or param.name.startswith("batch_norm1d_1"):
+                    param.trainable = True
+                else:
+                    param.trainable = False
+        elif freezing == -3:
+            for param in model.parameters():
+                if param.name.startswith("linear_1") or param.name.startswith("batch_norm1d_1") or param.name.startswith("linear_0") :
+                    param.trainable = True
+                else:
+                    param.trainable = False
+
+    #学习率
+    num_training_steps = len(train_data_loader) * epochs
+    print("lr scheduler: ", lr, num_training_steps, epochs)
+    lr_scheduler = SlantedTriangularLR(lr, num_training_steps)
+
+    #定义优化器
+    optimizer = paddle.optimizer.Adam(
+        learning_rate=lr_scheduler,
+        beta1 = 0.7,
+        beta2 = 0.99,
+        weight_decay=0.01,
+        parameters=model.parameters())
 
     global_step = 0
     tic_train = time.time()
     best_accu = 0
     for epoch in range(1, epochs + 1):
+        model.train()
         for step, batch in enumerate(train_data_loader, start=1):
             input_ids, label_ids = batch
             # 喂数据给model
@@ -456,38 +524,96 @@ def train(
             loss = criterion(output.reshape((-1, output.shape[-1])), label_ids.flatten().astype("int64"))
 
             # 预测分类概率值
+            x1 = paddle.argmax(output, -1).flatten()
+            acc = (x1 == label_ids.flatten()).astype("float32").mean()
 
             global_step += 1
             if global_step % 100 == 0:
                 print(
-                    "global step %d, epoch: %d, batch: %d, loss: %.5f,speed: %.2f step/s, lr: %.7f"
+                    "global step %d, epoch: %d, batch: %d, loss: %.5f,speed: %.2f step/s, lr: %.7f, acc: %.5f"
                     % (global_step, epoch, step, loss,
-                    10 / (time.time() - tic_train),lr))
-                    # scheduler.get_lr()
+                       10 / (time.time() - tic_train), lr_scheduler.get_lr(), acc))
+                # scheduler.get_lr()
                 tic_train = time.time()
 
             # 反向梯度回传，更新参数
             loss.backward()
-            # scheduler.step()
             optimizer.step()
             optimizer.clear_grad()
+            lr_scheduler.step()
 
         # 评估当前训练的模型
-        accu = evaluate(model, criterion, metric, train_data_loader)
-        print(accu)
+        accu = evaluate(model, criterion, metric, val_data_loader)
+        print("validated : ", accu)
+        if accu > best_accu:
+            best_accu = accu
+            paddle.save(model.state_dict(), save_model_name)
 
     return model
+
+# clas_model = train(
+#     model,
+#     train_data_loader,
+#     epochs=3,
+#     save_model_name = "cls_freeze_1.pdparams"
+#     )
+
+
+# clas_model = train(
+#     model,
+#     train_data_loader,
+#     epochs=3,
+#     save_model_name = "cls_freeze_2.pdparams",
+#     pre_train="cls_freeze_1.pdparams"
+#     )
+
+# clas_model = train(
+#     model,
+#     train_data_loader,
+#     epochs=3,
+#     save_model_name = "cls_freeze_3.pdparams",
+#     pre_train="cls_freeze_2.pdparams"
+#     )
+
 
 clas_model = train(
     model,
     train_data_loader,
-    epochs=5)
+    epochs=30,
+    save_model_name = "cls_unfreeze.pdparams",
+    pre_train="cls_freeze_3.pdparams"
+    )
 
-clas_model_path = "clas_model.pdparams"
-print("saving clas model params")
-paddle.save(clas_model,clas_model_path)
-print("saving clas model params completed!")
+#==================运行测试集==============
+test_labels = []
+test_texts = []
+with open("./config/ag_news/ag_news/test.csv", "r", encoding="utf-8") as f:
+    for line in f:
+        s = line.split('","')
+        label,title,text = s[0].strip('"'),s[1],s[2].strip('"\n')
+        text = title + " " + text
+        test_labels.append(class_dict[label])
+        test_texts.append(text)
 
+test_tokenizer = TestCLSTokenizer(test_texts, test_labels, tokenizer.vocab, tokenizer.vocab_size,tokenizer.o2i, bs=1)
+tok_idx = test_tokenizer.create_idxs()
+testset = CLSDateset(tok_idx, is_test=True)
+test_ds = MapDataset(testset)
+
+trans_func = partial(convert_example, tokenizer=tokenizer)
+batchify_fn = lambda samples, fn=Tuple(
+    PadChunk(), #padding to max_len
+    Stack()  # labels
+): [data for data in fn(samples)]
+
+test_data_loader = create_dataloader(
+    test_ds,
+    mode='test',
+    batch_size=BATCH_SIZE,
+    batchify_fn=batchify_fn,
+    trans_fn=trans_func)
+accu = evaluate(clas_model, criterion, metric, test_data_loader)
+print("tested : ", accu)
 
 
 

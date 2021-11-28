@@ -1,13 +1,13 @@
 from functools import partial
-import os
+import os, sys
 import time
 from paddlenlp.datasets import MapDataset
 import re
 import html
 from collections.abc import Iterable,Iterator,Generator,Sequence
 from collections import Counter, defaultdict
-import sys
-sys.path.append('/home/aistudio/external-libraries')
+#import sys
+#sys.path.append('/home/aistudio/external-libraries')
 
 import spacy
 from spacy.symbols import ORTH
@@ -17,11 +17,12 @@ from paddle.io import Dataset, Subset
 import pandas as pd
 import numpy as np
 from paddlenlp.data import Pad, Stack, Tuple
-from utils import get_language_model,get_text_classifier
+from utils import get_language_model,get_text_classifier,SlantedTriangularLR
 from model import *
 import paddle.nn.functional as F
 import paddlenlp
 import warnings
+import random
 
 warnings.filterwarnings("ignore")
 
@@ -375,9 +376,18 @@ class CLSTokenizer:
         return np.array(self.full_tokens[idx]), np.array(self.label[idx], dtype="int64")
 
 class LMDateset(Dataset):
-    def __init__(self, data, is_test=False):
-        self._data = data
+    def __init__(self, data, is_val = False, val_ratio = 0.1, is_test=False):
+
+        if is_test:
+            self._data = data
+        else:
+            split = int(len(data) * (1-val_ratio))
+            if is_val:
+                self._data = data[split:]
+            else:
+                self._data = data[:split]
         self._is_test = is_test
+
     def __len__(self):
         return len(self._data)
     def __getitem__(self, idx):
@@ -449,7 +459,7 @@ class_dict = {
 }
 labels = []
 texts = []
-with open("/home/aistudio/awdlstm2/config/ag_news/ag_news/train.csv", "r", encoding="utf-8") as f:
+with open("./config/ag_news/ag_news/train.csv", "r", encoding="utf-8") as f:
     for line in f:
         s = line.split('","')
         label,title,text = s[0].strip('"'),s[1],s[2].strip('"\n')
@@ -462,8 +472,12 @@ tokenizer = LMTokenizer(texts, bs=BATCH_SIZE)
 # print(tokenizer.get_item(5998))
 # print(convert_example(1, tokenizer))
 
-baseset = LMDateset(tokenizer.create_idxs())
-ds = MapDataset(baseset)
+tok_idx = tokenizer.create_idxs()
+random.shuffle(tok_idx)
+trainset = LMDateset(tok_idx, is_val=False, val_ratio=0.1, is_test=False)
+valset = LMDateset(tok_idx, is_val=True, val_ratio=0.1, is_test=False)
+train_ds = MapDataset(trainset)
+val_ds = MapDataset(valset)
 
 
 # val_labels = []
@@ -487,10 +501,17 @@ batchify_fn = lambda samples, fn=Tuple(
 ): [data for data in fn(samples)]
 
 train_data_loader = create_dataloader(
-    ds, 
+    train_ds,
     mode='train', 
     batch_size=BATCH_SIZE, 
     batchify_fn=None, 
+    trans_fn=trans_func)
+
+val_data_loader = create_dataloader(
+    val_ds,
+    mode='train',
+    batch_size=BATCH_SIZE,
+    batchify_fn=None,
     trans_fn=trans_func)
 
 awd_lstm_lm_config = dict(emb_sz=400, n_hid=1152, n_layers=3, pad_token=1, bidir=False, output_p=0.1,
@@ -499,37 +520,18 @@ awd_lstm_lm_config = dict(emb_sz=400, n_hid=1152, n_layers=3, pad_token=1, bidir
 awd_lstm_clas_config = dict(emb_sz=400, n_hid=1152, n_layers=3, pad_token=1, bidir=False, output_p=0.4,
                             hidden_p=0.3, input_p=0.4, embed_p=0.05, weight_p=0.5)
 
-pdparams = "/home/aistudio/awdlstm2/config/wt103-fwd2.pdparams"
+pdparams = "/d/hulei/pd_match/papers_reproduce/Paddle-awdlstm/wt103/wt103-fwd.pdparams"
 model = get_language_model(
     AWD_LSTM, 
     tokenizer.vocab_size,
     config=awd_lstm_lm_config,
     param_path=pdparams)
-# print("model now:",model)
-# print("now state dicts:",model.state_dict().keys())
-# for  k in model.state_dict().keys():
-#     if "decoder.weight" in k :
-#         print(k, model.state_dict()[k])
-# exit()
-# print("length of state dicts:",len(model.state_dict()))
 
 
-
-# 训练轮次
-epochs = 1
-num_training_steps = len(train_data_loader) * epochs
-print(num_training_steps, int(num_training_steps*0.1))
-scheduler = paddlenlp.transformers.LinearDecayWithWarmup(1e-3, num_training_steps, 0.1)
-lr = 1e-3
-
-# Adam优化器
-optimizer = paddle.optimizer.AdamW(
-    learning_rate=lr,
-    parameters=model.parameters())
 # 交叉熵损失函数
 criterion = paddle.nn.loss.CrossEntropyLoss()
 metric = paddle.metric.Accuracy()
-ckpt_dir = "/home/aistudio/work"
+ckpt_dir = "./ckpts"
 
 @paddle.no_grad()
 def evaluate(model, criterion, metric, data_loader):
@@ -559,24 +561,42 @@ def train(
     data_loader,
     epochs=1,
     lr=0.001,
-    optimizer=optimizer,
     criterion=criterion,
     metric=metric,
     freezing=False,
-    unfreezing_num=0):
+    save_model_name = "model.pdparams",
+    pre_train = None):
+
+    if pre_train is not None:
+        print("loaded pre_train", pre_train)
+        state_dict = paddle.load(pre_train)
+        model.set_state_dict(state_dict)
 
     if freezing == True:
-        print("freezing")
-        freezed_state_dict = {}
-        state_dict = model.state_dict()
-        for key in state_dict.keys():
-            freezed_state_dict[key] = paddle.to_tensor(state_dict[key].clone(),stop_gradient=True)
-        model.set_state_dict(freezed_state_dict)
+        print("freezing to last layer")
+        for param in model.parameters():
+            if param.name.startswith("linear_0"):
+                param.trainable = True
+            else:
+                param.trainable = False
+
+    #学习率
+    num_training_steps = len(train_data_loader) * epochs
+    print("lr scheduler: ", lr, num_training_steps, epochs)
+    lr_scheduler = SlantedTriangularLR(lr, num_training_steps)
+
+    #定义优化器
+    optimizer = paddle.optimizer.Adam(
+        learning_rate=lr_scheduler,
+        beta1 = 0.7,
+        beta2 = 0.99,
+        parameters=model.parameters())
 
     global_step = 0
     tic_train = time.time()
     best_accu = 0
     for epoch in range(1, epochs + 1):
+        model.train()
         for step, batch in enumerate(data_loader, start=1):
             input_ids, label_ids = batch
             # 喂数据给model
@@ -587,25 +607,32 @@ def train(
             loss = criterion(output.reshape((-1, output.shape[-1])), label_ids.flatten().astype("int64"))
 
             # 预测分类概率值
+            x1 = paddle.argmax(output, -1).flatten()
+            acc = (x1 == label_ids.flatten()).astype("float32").mean()
 
             global_step += 1
             if global_step % 100 == 0:
                 print(
-                    "global step %d, epoch: %d, batch: %d, loss: %.5f,speed: %.2f step/s, lr: %.7f"
+                    "global step %d, epoch: %d, batch: %d, loss: %.5f,speed: %.2f step/s, lr: %.7f, acc: %.5f"
                     % (global_step, epoch, step, loss,
-                    10 / (time.time() - tic_train),lr))
+                    10 / (time.time() - tic_train), lr_scheduler.get_lr(), acc))
                     # scheduler.get_lr()
                 tic_train = time.time()
 
             # 反向梯度回传，更新参数
             loss.backward()
-            # scheduler.step()
             optimizer.step()
             optimizer.clear_grad()
+            lr_scheduler.step()
 
         # 评估当前训练的模型
-        accu = evaluate(model, criterion, metric, data_loader)
-        print(accu)
+        accu = evaluate(model, criterion, metric, val_data_loader)
+        print("validated : ", accu)
+        if accu > best_accu:
+            best_accu = accu
+            paddle.save(model.state_dict(), save_model_name)
+
+
 
     return model
 
@@ -614,73 +641,82 @@ def train(
 # train_model = train(
 #     model=model,
 #     data_loader=train_data_loader,
-#     epochs=epochs,
-#     lr=5e-3,
-#     freezing=True)
+#     epochs=3,
+#     lr=1e-2,
+#     freezing=True,
+#     save_model_name = "freeze_lm.pdparams")
 
 #unfreeze an save encoder
-# train_model = train(
-#     model=train_model,
-#     data_loader=train_data_loader,
-#     epochs=10,
-#     lr=5e-4)
+train_model = train(
+    model=model,
+    data_loader=train_data_loader,
+    epochs=30,
+    lr=4e-3,
+    freezing=False,
+    pre_train= "freeze_lm.pdparams",
+    save_model_name = "unfreeze_lm.pdparams")
 
+
+
+#=========================================================================================
 #save the encoder
-encoder_path = "encoder.pdparams"
-# save_encoder(train_model,encoder_path)
-
-labels_clas = []
-texts_clas = []
-with open("/home/aistudio/awdlstm2/config/ag_news/ag_news/train.csv", "r", encoding="utf-8") as f:
-    for line in f:
-        s = line.split('","')
-        label, title, text = s[0], s[1], s[2]
-        text = title + " " + text
-        label = re.sub("\D", "", label)
-        labels_clas.append(int(label) - 1)
-        texts_clas.append(text)
-
-tokenizer_clas = CLSTokenizer(texts_clas,labels_clas,bs=BATCH_SIZE)
-
-baseset_clas = LMDateset(tokenizer_clas.create_idxs())
-ds_clas = MapDataset(baseset_clas)
-
-cls_num = 4
-clas_model = get_text_classifier(
-    AWD_LSTM, 
-    tokenizer_clas.vocab_size, 
-    cls_num, 
-    seq_len=72, 
-    drop_mult=0.5,  
-    max_len=72*20,
-    config=awd_lstm_clas_config,
-    param_path=pdparams)
-
-#load encoder
-clas_model = load_encoder(clas_model,encoder_path)
-
-trans_func_clas = partial(convert_example, tokenizer=tokenizer_clas)
-
-batchify_fn_padchunked = lambda samples, fn=Tuple(
-    PadChunk(), #padding to max_len
-    Stack()  # labels
-): [data for data in fn(samples)]
-
-clas_data_loader = create_dataloader(
-    ds_clas, 
-    mode='train', 
-    batch_size=BATCH_SIZE, 
-    batchify_fn=batchify_fn_padchunked, 
-    trans_fn=trans_func_clas)
-
-
-clas_model = train(
-    model=clas_model,
-    data_loader=clas_data_loader,
-    epochs=1,
-    lr=2.5e-2,
-    freezing=True
-)
+# encoder_path = "encoder.pdparams"
+# # save_encoder(train_model,encoder_path)
+#
+# labels_clas = []
+# texts_clas = []
+# with open("./config/ag_news/ag_news/train.csv", "r", encoding="utf-8") as f:
+#     for line in f:
+#         s = line.split('","')
+#         label, title, text = s[0], s[1], s[2]
+#         text = title + " " + text
+#         label = re.sub("\D", "", label)
+#         labels_clas.append(int(label) - 1)
+#         texts_clas.append(text)
+#
+# tokenizer_clas = CLSTokenizer(texts_clas,labels_clas,bs=BATCH_SIZE)
+#
+# baseset_clas = LMDateset(tokenizer_clas.create_idxs())
+# ds_clas = MapDataset(baseset_clas)
+#
+# cls_num = 4
+# clas_model = get_text_classifier(
+#     AWD_LSTM,
+#     tokenizer_clas.vocab_size,
+#     cls_num,
+#     seq_len=72,
+#     drop_mult=0.5,
+#     max_len=72*20,
+#     config=awd_lstm_clas_config,
+#     param_path=pdparams)
+#
+#
+#
+# #load encoder
+# clas_model = load_encoder(clas_model,encoder_path)
+#
+# trans_func_clas = partial(convert_example, tokenizer=tokenizer_clas)
+#
+# batchify_fn_padchunked = lambda samples, fn=Tuple(
+#     PadChunk(), #padding to max_len
+#     Stack()  # labels
+# ): [data for data in fn(samples)]
+#
+# clas_data_loader = create_dataloader(
+#     ds_clas,
+#     mode='train',
+#     batch_size=BATCH_SIZE,
+#     batchify_fn=batchify_fn_padchunked,
+#     trans_fn=trans_func_clas)
+#
+#
+# clas_model = train(
+#     model=clas_model,
+#     data_loader=clas_data_loader,
+#     epochs=1,
+#     lr=2.5e-2,
+#     freezing=True
+# )
 
 
 

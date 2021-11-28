@@ -205,7 +205,7 @@ class PoolingLinearClassifier(nn.Layer):
 
 # Cell
 def get_text_classifier(arch, vocab_sz, n_class, seq_len=72, config=None, drop_mult=1., lin_ftrs=None,
-                        ps=None, pad_idx=1, max_len=72*20, y_range=None,param_path=None):
+                        ps=None, pad_idx=1, max_len=72*20, y_range=None,param_path=None, freeze_last=False):
     "Create a text classifier from `arch` and its `config`, maybe `pretrained`"
     meta = _model_meta[arch]
     if config is None:
@@ -218,8 +218,42 @@ def get_text_classifier(arch, vocab_sz, n_class, seq_len=72, config=None, drop_m
     ps = [config.pop("output_p")] + ps
     init = config.pop("init") if "init" in config else None
     encoder = SentenceEncoder(seq_len,arch(vocab_sz,**config),pad_idx=pad_idx,max_len=max_len)
-    model = SequentialRNN(encoder,PoolingLinearClassifier(layers,ps,bptt=seq_len,y_range=y_range))
+    plc = PoolingLinearClassifier(layers,ps,bptt=seq_len,y_range=y_range)
+    if freeze_last:
+        plc.freeze_last();
+    model = SequentialRNN(encoder, plc)
+
+
+
     wgts = paddle.load(param_path)
     if "model" in wgts:wgts = wgts["model"]
     model = load_keys(model,wgts)
     return model if init is None else model.apply("init")
+
+
+#自定义学习率
+from paddle.optimizer.lr import LRScheduler
+
+class SlantedTriangularLR(LRScheduler):
+    def __init__(self,
+                 learning_rate,
+                 iters,
+                 cut_frac=0.1,
+                 ratio=32,
+                 last_epoch=-1,
+                 verbose=False):
+
+        self.cut = int(iters * cut_frac)
+        self.cut = float(self.cut)
+        self.cut_frac = cut_frac
+        self.ratio = ratio
+
+        super(SlantedTriangularLR, self).__init__(learning_rate, last_epoch, verbose)
+
+    def get_lr(self):
+        if self.last_epoch < self.cut:
+            p = self.last_epoch / self.cut
+        else:
+            p = 1 - (self.last_epoch - self.cut) / (self.cut * (1 / self.cut_frac - 1))
+
+        return self.base_lr * (1 + p * (self.ratio - 1)) / self.ratio
