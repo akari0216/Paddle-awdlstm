@@ -151,80 +151,7 @@ class SpacyTokenizer():
     def __call__(self, items):
         return (list(map(str, list(doc))) for doc in self.pipe(map(str, items), batch_size=self.buf_sz))
 
-class CLSTokenizer:
-    min_freq = 3
-    max_vocab = 60000
-    special_toks = default_text_spec_tok
-    vocab = None
-    vocab_size = None
-    o2i = None
-    spacy_tok = None
-    full_tokens = []
-    full_lens = []
-    cumlens = 0
-    totlen = 0
 
-    def __init__(self, text, label, bs=2, seq_len=72):
-        self.label = label
-        self.bs = bs
-        self.seq_len = seq_len
-        self.spacy_tok = SpacyTokenizer()
-        tok_res = self.get_spacy_toks(text)
-        char_tokens = []
-        self.full_tokens = []
-        for tr in tok_res:
-            char_tokens += tr
-            self.full_lens.append(len(tr))
-            self.full_tokens.append(tr)
-        self.totlen = len(self.full_tokens)
-
-        count = Counter(char_tokens)
-        self.vocab = self.make_vocab(count)
-        self.vocab_size = len(self.vocab)
-        self.o2i = defaultdict(int, {v: k for k, v in enumerate(self.vocab) if v != 'xxfake'})
-
-        self.full_tokens = self.convert_token_id(self.full_tokens)
-        # print(self.vocab_size, len(self.full_tokens), np.asarray(self.full_tokens).shape, self.full_tokens[0], self.totlen)
-
-    def get_spacy_toks(self, text):
-        tok_res = self.spacy_tok(maps(*defaults_text_proc_rules, text))
-        return (list(maps(*defaults_text_postproc_rules, o)) for o in tok_res)
-
-    def make_vocab(self, count):
-        vocab = [o for o, c in count.most_common(self.max_vocab) if c >= self.min_freq]
-        for o in reversed(self.special_toks):  # Make sure all special tokens are in the vocab
-            if o in vocab: vocab.remove(o)
-            vocab.insert(0, o)
-        vocab = vocab[:self.max_vocab]
-        return vocab + [f'xxfake' for i in range(0, 8 - len(vocab) % 8)]
-
-    def __call__(self, o):
-        words = self.get_spacy_toks(o)
-        return self.convert_token_id(words)
-
-    def convert_token_id(self, words):
-        all = []
-        for o_ in list(words):
-            tmp = []
-            for x in o_:
-                tmp.append(self.o2i[x])
-            all.append(tmp)
-        return all
-
-    def decode(self, o):
-        return [self.vocab[o_] for o_ in o]
-
-    def create_idxs(self):
-        return [i for i in range(self.totlen)]
-
-    def doc_idx(self, i):
-        if i<0: i=self.totlen+i
-        docidx = np.searchsorted(self.cumlens, i+1)-1
-        cl = self.cumlens[docidx]
-        return docidx, i-cl
-
-    def get_item(self, idx):
-        return np.array(self.full_tokens[idx]), np.array(self.label[idx], dtype="int64")
 
 
 class TestCLSTokenizer:
@@ -343,6 +270,7 @@ class PadChunk(object):
                 ret.append(arr)
             else:
                 ret.append(self.pad_chunk(arr, max_size))
+        print("====>shape ", np.array(ret).shape)
         return np.array(ret)
 
     def pad_chunk(self, x, pad_len=10):
@@ -421,12 +349,42 @@ val_data_loader = create_dataloader(
     batchify_fn=batchify_fn,
     trans_fn=trans_func)
 
+
+test_labels = []
+test_texts = []
+with open("./config/ag_news/ag_news/test.csv", "r", encoding="utf-8") as f:
+    for line in f:
+        s = line.split('","')
+        label,title,text = s[0].strip('"'),s[1],s[2].strip('"\n')
+        text = title + " " + text
+        test_labels.append(class_dict[label])
+        test_texts.append(text)
+
+test_tokenizer = TestCLSTokenizer(test_texts, test_labels, tokenizer.vocab, tokenizer.vocab_size,tokenizer.o2i, bs=1)
+test_tok_idx = test_tokenizer.create_idxs()
+testset = CLSDateset(test_tok_idx, is_test=True)
+test_ds = MapDataset(testset)
+
+trans_func = partial(convert_example, tokenizer=tokenizer)
+batchify_fn = lambda samples, fn=Tuple(
+    PadChunk(), #padding to max_len
+    Stack()  # labels
+): [data for data in fn(samples)]
+
+test_data_loader = create_dataloader(
+    test_ds,
+    mode='test',
+    batch_size=BATCH_SIZE,
+    batchify_fn=batchify_fn,
+    trans_fn=trans_func)
+
+
 cls_num = 4
 model = get_text_classifier(
-    AWD_LSTM, 
-    tokenizer.vocab_size, 
-    cls_num, seq_len=72, 
-    drop_mult=0.5,  
+    AWD_LSTM,
+    tokenizer.vocab_size,
+    cls_num, seq_len=72,
+    drop_mult=0.5,
     max_len=72*20,
     param_path=pdparams)
 
@@ -475,21 +433,24 @@ def train(
         model.set_state_dict(state_dict)
 
     if freezing is not None:
-        print("freezing to last layer")
+
 
         if freezing == -1:
+            print("freezing to last layer")
             for param in model.parameters():
                 if param.name.startswith("linear_1"):
                     param.trainable = True
                 else:
                     param.trainable = False
         elif freezing == -2:
+            print("freezing to -2 layer")
             for param in model.parameters():
                 if param.name.startswith("linear_1") or param.name.startswith("batch_norm1d_1"):
                     param.trainable = True
                 else:
                     param.trainable = False
         elif freezing == -3:
+            print("freezing to -3 layer")
             for param in model.parameters():
                 if param.name.startswith("linear_1") or param.name.startswith("batch_norm1d_1") or param.name.startswith("linear_0") :
                     param.trainable = True
@@ -506,7 +467,7 @@ def train(
         learning_rate=lr_scheduler,
         beta1 = 0.7,
         beta2 = 0.99,
-        weight_decay=0.01,
+        weight_decay=0.001,
         parameters=model.parameters())
 
     global_step = 0
@@ -549,78 +510,8 @@ def train(
             best_accu = accu
             paddle.save(model.state_dict(), save_model_name)
 
+        # 评估测试集
+        test_accu = evaluate(model, criterion, metric, test_data_loader)
+        print("tested : ", test_accu)
+
     return model
-
-# clas_model = train(
-#     model,
-#     train_data_loader,
-#     epochs=3,
-#     save_model_name = "cls_freeze_1.pdparams"
-#     )
-
-
-# clas_model = train(
-#     model,
-#     train_data_loader,
-#     epochs=3,
-#     save_model_name = "cls_freeze_2.pdparams",
-#     pre_train="cls_freeze_1.pdparams"
-#     )
-
-# clas_model = train(
-#     model,
-#     train_data_loader,
-#     epochs=3,
-#     save_model_name = "cls_freeze_3.pdparams",
-#     pre_train="cls_freeze_2.pdparams"
-#     )
-
-
-clas_model = train(
-    model,
-    train_data_loader,
-    epochs=30,
-    save_model_name = "cls_unfreeze.pdparams",
-    pre_train="cls_freeze_3.pdparams"
-    )
-
-#==================运行测试集==============
-test_labels = []
-test_texts = []
-with open("./config/ag_news/ag_news/test.csv", "r", encoding="utf-8") as f:
-    for line in f:
-        s = line.split('","')
-        label,title,text = s[0].strip('"'),s[1],s[2].strip('"\n')
-        text = title + " " + text
-        test_labels.append(class_dict[label])
-        test_texts.append(text)
-
-test_tokenizer = TestCLSTokenizer(test_texts, test_labels, tokenizer.vocab, tokenizer.vocab_size,tokenizer.o2i, bs=1)
-tok_idx = test_tokenizer.create_idxs()
-testset = CLSDateset(tok_idx, is_test=True)
-test_ds = MapDataset(testset)
-
-trans_func = partial(convert_example, tokenizer=tokenizer)
-batchify_fn = lambda samples, fn=Tuple(
-    PadChunk(), #padding to max_len
-    Stack()  # labels
-): [data for data in fn(samples)]
-
-test_data_loader = create_dataloader(
-    test_ds,
-    mode='test',
-    batch_size=BATCH_SIZE,
-    batchify_fn=batchify_fn,
-    trans_fn=trans_func)
-accu = evaluate(clas_model, criterion, metric, test_data_loader)
-print("tested : ", accu)
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,5 @@
+[2022/01/21 12:07:10] root INFO: lm logits: 
+[2022/01/21 12:07:10] root INFO: 	mean diff: check passed: True, value: 0.0
+[2022/01/21 12:07:10] root INFO: cls logits: 
+[2022/01/21 12:07:10] root INFO: 	mean diff: check passed: True, value: 4.485443787416443e-05
+[2022/01/21 12:07:10] root INFO: diff check passed

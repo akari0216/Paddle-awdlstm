@@ -1,0 +1,568 @@
+2022-02-14 21:42:13  logger  INFO  freezing to last layer
+2022-02-14 21:42:40  logger  INFO  global step 100, epoch: 1, batch: 100, loss: 2.09035,speed: 0.37 step/s, lr: 0.0010038, acc: 0.43750
+2022-02-14 21:43:08  logger  INFO  global step 200, epoch: 1, batch: 200, loss: 1.33762,speed: 0.35 step/s, lr: 0.0013864, acc: 0.60938
+2022-02-14 21:43:38  logger  INFO  global step 300, epoch: 1, batch: 300, loss: 1.22428,speed: 0.33 step/s, lr: 0.0017690, acc: 0.54688
+2022-02-14 21:44:05  logger  INFO  global step 400, epoch: 1, batch: 400, loss: 0.66983,speed: 0.38 step/s, lr: 0.0021516, acc: 0.81250
+2022-02-14 21:44:30  logger  INFO  global step 500, epoch: 1, batch: 500, loss: 0.62743,speed: 0.40 step/s, lr: 0.0025342, acc: 0.79688
+2022-02-14 21:44:56  logger  INFO  global step 600, epoch: 1, batch: 600, loss: 0.78706,speed: 0.38 step/s, lr: 0.0029168, acc: 0.75000
+2022-02-14 21:45:22  logger  INFO  global step 700, epoch: 1, batch: 700, loss: 0.55591,speed: 0.38 step/s, lr: 0.0032994, acc: 0.81250
+2022-02-14 21:45:49  logger  INFO  global step 800, epoch: 1, batch: 800, loss: 0.41579,speed: 0.37 step/s, lr: 0.0036820, acc: 0.82812
+2022-02-14 21:46:20  logger  INFO  global step 900, epoch: 1, batch: 900, loss: 0.49864,speed: 0.33 step/s, lr: 0.0040646, acc: 0.79688
+2022-02-14 21:46:48  logger  INFO  global step 1000, epoch: 1, batch: 1000, loss: 0.40169,speed: 0.36 step/s, lr: 0.0044472, acc: 0.85938
+2022-02-14 21:47:15  logger  INFO  global step 1100, epoch: 1, batch: 1100, loss: 0.42199,speed: 0.36 step/s, lr: 0.0048298, acc: 0.87500
+2022-02-14 21:47:44  logger  INFO  global step 1200, epoch: 1, batch: 1200, loss: 0.30030,speed: 0.35 step/s, lr: 0.0052124, acc: 0.92188
+2022-02-14 21:48:10  logger  INFO  global step 1300, epoch: 1, batch: 1300, loss: 0.49056,speed: 0.38 step/s, lr: 0.0055950, acc: 0.82812
+2022-02-14 21:48:37  logger  INFO  global step 1400, epoch: 1, batch: 1400, loss: 0.38170,speed: 0.37 step/s, lr: 0.0059776, acc: 0.81250
+2022-02-14 21:49:06  logger  INFO  global step 1500, epoch: 1, batch: 1500, loss: 0.72705,speed: 0.34 step/s, lr: 0.0063602, acc: 0.71875
+2022-02-14 21:49:34  logger  INFO  global step 1600, epoch: 1, batch: 1600, loss: 0.59929,speed: 0.36 step/s, lr: 0.0067428, acc: 0.81250
+2022-02-14 21:51:21  logger  INFO  eval loss: 0.28810, accu: 0.90539
+2022-02-14 21:51:21  logger  INFO  tested : 0.90539473
+2022-02-14 21:51:25  logger  INFO  global step 1700, epoch: 2, batch: 12, loss: 0.46753,speed: 0.09 step/s, lr: 0.0071254, acc: 0.81250
+2022-02-14 21:51:52  logger  INFO  global step 1800, epoch: 2, batch: 112, loss: 0.16036,speed: 0.37 step/s, lr: 0.0075080, acc: 0.95312
+2022-02-14 21:52:20  logger  INFO  global step 1900, epoch: 2, batch: 212, loss: 0.77354,speed: 0.36 step/s, lr: 0.0078906, acc: 0.62500
+2022-02-14 21:52:49  logger  INFO  global step 2000, epoch: 2, batch: 312, loss: 0.74070,speed: 0.34 step/s, lr: 0.0082732, acc: 0.67188
+2022-02-14 21:53:17  logger  INFO  global step 2100, epoch: 2, batch: 412, loss: 0.73441,speed: 0.36 step/s, lr: 0.0086558, acc: 0.73438
+2022-02-14 21:53:47  logger  INFO  global step 2200, epoch: 2, batch: 512, loss: 0.75440,speed: 0.33 step/s, lr: 0.0090384, acc: 0.59375
+2022-02-14 21:54:16  logger  INFO  global step 2300, epoch: 2, batch: 612, loss: 0.33173,speed: 0.35 step/s, lr: 0.0094210, acc: 0.85938
+2022-02-14 21:54:44  logger  INFO  global step 2400, epoch: 2, batch: 712, loss: 0.66546,speed: 0.35 step/s, lr: 0.0098036, acc: 0.68750
+2022-02-14 21:55:12  logger  INFO  global step 2500, epoch: 2, batch: 812, loss: 0.23650,speed: 0.36 step/s, lr: 0.0101862, acc: 0.92188
+2022-02-14 21:55:38  logger  INFO  global step 2600, epoch: 2, batch: 912, loss: 0.73933,speed: 0.38 step/s, lr: 0.0105688, acc: 0.65625
+2022-02-14 21:56:06  logger  INFO  global step 2700, epoch: 2, batch: 1012, loss: 0.31032,speed: 0.37 step/s, lr: 0.0109514, acc: 0.90625
+2022-02-14 21:56:32  logger  INFO  global step 2800, epoch: 2, batch: 1112, loss: 0.39180,speed: 0.38 step/s, lr: 0.0113340, acc: 0.87500
+2022-02-14 21:56:59  logger  INFO  global step 2900, epoch: 2, batch: 1212, loss: 0.48045,speed: 0.37 step/s, lr: 0.0117167, acc: 0.81250
+2022-02-14 21:57:26  logger  INFO  global step 3000, epoch: 2, batch: 1312, loss: 0.39194,speed: 0.36 step/s, lr: 0.0120993, acc: 0.82812
+2022-02-14 21:57:55  logger  INFO  global step 3100, epoch: 2, batch: 1412, loss: 0.25260,speed: 0.35 step/s, lr: 0.0124819, acc: 0.92188
+2022-02-14 21:58:24  logger  INFO  global step 3200, epoch: 2, batch: 1512, loss: 0.42648,speed: 0.35 step/s, lr: 0.0128645, acc: 0.84375
+2022-02-14 21:58:52  logger  INFO  global step 3300, epoch: 2, batch: 1612, loss: 0.38550,speed: 0.35 step/s, lr: 0.0132471, acc: 0.82812
+2022-02-14 22:00:35  logger  INFO  eval loss: 0.26673, accu: 0.90763
+2022-02-14 22:00:35  logger  INFO  tested : 0.9076316
+2022-02-14 22:00:42  logger  INFO  global step 3400, epoch: 3, batch: 24, loss: 0.25079,speed: 0.09 step/s, lr: 0.0136297, acc: 0.89062
+2022-02-14 22:01:09  logger  INFO  global step 3500, epoch: 3, batch: 124, loss: 0.52369,speed: 0.38 step/s, lr: 0.0140123, acc: 0.78125
+2022-02-14 22:01:37  logger  INFO  global step 3600, epoch: 3, batch: 224, loss: 1.00513,speed: 0.35 step/s, lr: 0.0143949, acc: 0.56250
+2022-02-14 22:02:03  logger  INFO  global step 3700, epoch: 3, batch: 324, loss: 0.88220,speed: 0.39 step/s, lr: 0.0147775, acc: 0.56250
+2022-02-14 22:02:30  logger  INFO  global step 3800, epoch: 3, batch: 424, loss: 0.53094,speed: 0.36 step/s, lr: 0.0151601, acc: 0.81250
+2022-02-14 22:03:00  logger  INFO  global step 3900, epoch: 3, batch: 524, loss: 0.27782,speed: 0.33 step/s, lr: 0.0155427, acc: 0.89062
+2022-02-14 22:03:29  logger  INFO  global step 4000, epoch: 3, batch: 624, loss: 0.44240,speed: 0.34 step/s, lr: 0.0159253, acc: 0.79688
+2022-02-14 22:03:59  logger  INFO  global step 4100, epoch: 3, batch: 724, loss: 0.25999,speed: 0.34 step/s, lr: 0.0163079, acc: 0.92188
+2022-02-14 22:04:28  logger  INFO  global step 4200, epoch: 3, batch: 824, loss: 0.89138,speed: 0.34 step/s, lr: 0.0166905, acc: 0.60938
+2022-02-14 22:05:00  logger  INFO  global step 4300, epoch: 3, batch: 924, loss: 0.67372,speed: 0.31 step/s, lr: 0.0170731, acc: 0.67188
+2022-02-14 22:05:27  logger  INFO  global step 4400, epoch: 3, batch: 1024, loss: 0.27404,speed: 0.37 step/s, lr: 0.0174557, acc: 0.90625
+2022-02-14 22:05:56  logger  INFO  global step 4500, epoch: 3, batch: 1124, loss: 0.38923,speed: 0.35 step/s, lr: 0.0178383, acc: 0.87500
+2022-02-14 22:06:25  logger  INFO  global step 4600, epoch: 3, batch: 1224, loss: 0.31244,speed: 0.34 step/s, lr: 0.0182209, acc: 0.89062
+2022-02-14 22:06:56  logger  INFO  global step 4700, epoch: 3, batch: 1324, loss: 0.45948,speed: 0.32 step/s, lr: 0.0186035, acc: 0.84375
+2022-02-14 22:07:28  logger  INFO  global step 4800, epoch: 3, batch: 1424, loss: 0.40526,speed: 0.32 step/s, lr: 0.0189861, acc: 0.82812
+2022-02-14 22:07:55  logger  INFO  global step 4900, epoch: 3, batch: 1524, loss: 0.77111,speed: 0.36 step/s, lr: 0.0193687, acc: 0.62500
+2022-02-14 22:08:22  logger  INFO  global step 5000, epoch: 3, batch: 1624, loss: 0.54535,speed: 0.37 step/s, lr: 0.0197513, acc: 0.75000
+2022-02-14 22:10:00  logger  INFO  eval loss: 0.26765, accu: 0.90539
+2022-02-14 22:10:00  logger  INFO  tested : 0.90539473
+2022-02-14 22:10:11  logger  INFO  global step 5100, epoch: 4, batch: 36, loss: 0.31746,speed: 0.09 step/s, lr: 0.0199851, acc: 0.87500
+2022-02-14 22:10:40  logger  INFO  global step 5200, epoch: 4, batch: 136, loss: 0.41636,speed: 0.35 step/s, lr: 0.0199426, acc: 0.87500
+2022-02-14 22:11:08  logger  INFO  global step 5300, epoch: 4, batch: 236, loss: 0.24034,speed: 0.36 step/s, lr: 0.0199001, acc: 0.89062
+2022-02-14 22:11:34  logger  INFO  global step 5400, epoch: 4, batch: 336, loss: 0.28115,speed: 0.38 step/s, lr: 0.0198576, acc: 0.90625
+2022-02-14 22:12:02  logger  INFO  global step 5500, epoch: 4, batch: 436, loss: 0.38375,speed: 0.37 step/s, lr: 0.0198151, acc: 0.85938
+2022-02-14 22:12:30  logger  INFO  global step 5600, epoch: 4, batch: 536, loss: 0.43630,speed: 0.35 step/s, lr: 0.0197726, acc: 0.82812
+2022-02-14 22:13:02  logger  INFO  global step 5700, epoch: 4, batch: 636, loss: 0.60156,speed: 0.32 step/s, lr: 0.0197301, acc: 0.82812
+2022-02-14 22:13:30  logger  INFO  global step 5800, epoch: 4, batch: 736, loss: 0.30999,speed: 0.36 step/s, lr: 0.0196875, acc: 0.87500
+2022-02-14 22:14:00  logger  INFO  global step 5900, epoch: 4, batch: 836, loss: 0.78149,speed: 0.33 step/s, lr: 0.0196450, acc: 0.68750
+2022-02-14 22:14:27  logger  INFO  global step 6000, epoch: 4, batch: 936, loss: 0.86110,speed: 0.36 step/s, lr: 0.0196025, acc: 0.60938
+2022-02-14 22:14:55  logger  INFO  global step 6100, epoch: 4, batch: 1036, loss: 0.32545,speed: 0.37 step/s, lr: 0.0195600, acc: 0.89062
+2022-02-14 22:15:21  logger  INFO  global step 6200, epoch: 4, batch: 1136, loss: 0.27785,speed: 0.38 step/s, lr: 0.0195175, acc: 0.89062
+2022-02-14 22:15:51  logger  INFO  global step 6300, epoch: 4, batch: 1236, loss: 0.34145,speed: 0.33 step/s, lr: 0.0194750, acc: 0.89062
+2022-02-14 22:16:18  logger  INFO  global step 6400, epoch: 4, batch: 1336, loss: 0.24839,speed: 0.38 step/s, lr: 0.0194325, acc: 0.89062
+2022-02-14 22:16:45  logger  INFO  global step 6500, epoch: 4, batch: 1436, loss: 0.37772,speed: 0.37 step/s, lr: 0.0193900, acc: 0.90625
+2022-02-14 22:17:12  logger  INFO  global step 6600, epoch: 4, batch: 1536, loss: 0.44968,speed: 0.37 step/s, lr: 0.0193474, acc: 0.84375
+2022-02-14 22:17:43  logger  INFO  global step 6700, epoch: 4, batch: 1636, loss: 0.61942,speed: 0.32 step/s, lr: 0.0193049, acc: 0.73438
+2022-02-14 22:19:19  logger  INFO  eval loss: 0.27201, accu: 0.90776
+2022-02-14 22:19:19  logger  INFO  tested : 0.9077632
+2022-02-14 22:19:34  logger  INFO  global step 6800, epoch: 5, batch: 48, loss: 0.61803,speed: 0.09 step/s, lr: 0.0192624, acc: 0.78125
+2022-02-14 22:20:01  logger  INFO  global step 6900, epoch: 5, batch: 148, loss: 0.92777,speed: 0.37 step/s, lr: 0.0192199, acc: 0.62500
+2022-02-14 22:20:28  logger  INFO  global step 7000, epoch: 5, batch: 248, loss: 0.48231,speed: 0.37 step/s, lr: 0.0191774, acc: 0.81250
+2022-02-14 22:20:57  logger  INFO  global step 7100, epoch: 5, batch: 348, loss: 0.35651,speed: 0.35 step/s, lr: 0.0191349, acc: 0.84375
+2022-02-14 22:21:28  logger  INFO  global step 7200, epoch: 5, batch: 448, loss: 0.25909,speed: 0.32 step/s, lr: 0.0190924, acc: 0.92188
+2022-02-14 22:21:59  logger  INFO  global step 7300, epoch: 5, batch: 548, loss: 0.52096,speed: 0.33 step/s, lr: 0.0190499, acc: 0.82812
+2022-02-14 22:22:31  logger  INFO  global step 7400, epoch: 5, batch: 648, loss: 0.81480,speed: 0.31 step/s, lr: 0.0190074, acc: 0.60938
+2022-02-14 22:23:03  logger  INFO  global step 7500, epoch: 5, batch: 748, loss: 0.63058,speed: 0.31 step/s, lr: 0.0189648, acc: 0.81250
+2022-02-14 22:23:35  logger  INFO  global step 7600, epoch: 5, batch: 848, loss: 0.79439,speed: 0.31 step/s, lr: 0.0189223, acc: 0.65625
+2022-02-14 22:24:03  logger  INFO  global step 7700, epoch: 5, batch: 948, loss: 0.59057,speed: 0.36 step/s, lr: 0.0188798, acc: 0.71875
+2022-02-14 22:24:30  logger  INFO  global step 7800, epoch: 5, batch: 1048, loss: 0.76685,speed: 0.37 step/s, lr: 0.0188373, acc: 0.62500
+2022-02-14 22:24:59  logger  INFO  global step 7900, epoch: 5, batch: 1148, loss: 0.41956,speed: 0.33 step/s, lr: 0.0187948, acc: 0.87500
+2022-02-14 22:25:31  logger  INFO  global step 8000, epoch: 5, batch: 1248, loss: 0.17411,speed: 0.32 step/s, lr: 0.0187523, acc: 0.95312
+2022-02-14 22:25:59  logger  INFO  global step 8100, epoch: 5, batch: 1348, loss: 0.19721,speed: 0.36 step/s, lr: 0.0187098, acc: 0.93750
+2022-02-14 22:26:30  logger  INFO  global step 8200, epoch: 5, batch: 1448, loss: 0.49191,speed: 0.32 step/s, lr: 0.0186673, acc: 0.79688
+2022-02-14 22:26:58  logger  INFO  global step 8300, epoch: 5, batch: 1548, loss: 0.65926,speed: 0.35 step/s, lr: 0.0186248, acc: 0.67188
+2022-02-14 22:27:28  logger  INFO  global step 8400, epoch: 5, batch: 1648, loss: 0.57039,speed: 0.33 step/s, lr: 0.0185822, acc: 0.70312
+2022-02-14 22:28:59  logger  INFO  eval loss: 0.25782, accu: 0.90763
+2022-02-14 22:28:59  logger  INFO  tested : 0.9076316
+2022-02-14 22:29:16  logger  INFO  global step 8500, epoch: 6, batch: 60, loss: 0.24213,speed: 0.09 step/s, lr: 0.0185397, acc: 0.90625
+2022-02-14 22:29:43  logger  INFO  global step 8600, epoch: 6, batch: 160, loss: 0.44336,speed: 0.38 step/s, lr: 0.0184972, acc: 0.87500
+2022-02-14 22:30:15  logger  INFO  global step 8700, epoch: 6, batch: 260, loss: 0.32697,speed: 0.31 step/s, lr: 0.0184547, acc: 0.89062
+2022-02-14 22:30:46  logger  INFO  global step 8800, epoch: 6, batch: 360, loss: 0.63667,speed: 0.32 step/s, lr: 0.0184122, acc: 0.71875
+2022-02-14 22:31:14  logger  INFO  global step 8900, epoch: 6, batch: 460, loss: 1.03691,speed: 0.35 step/s, lr: 0.0183697, acc: 0.54688
+2022-02-14 22:31:40  logger  INFO  global step 9000, epoch: 6, batch: 560, loss: 0.47858,speed: 0.38 step/s, lr: 0.0183272, acc: 0.81250
+2022-02-14 22:32:09  logger  INFO  global step 9100, epoch: 6, batch: 660, loss: 0.27723,speed: 0.35 step/s, lr: 0.0182847, acc: 0.87500
+2022-02-14 22:32:41  logger  INFO  global step 9200, epoch: 6, batch: 760, loss: 0.59024,speed: 0.32 step/s, lr: 0.0182422, acc: 0.81250
+2022-02-14 22:33:10  logger  INFO  global step 9300, epoch: 6, batch: 860, loss: 0.78452,speed: 0.35 step/s, lr: 0.0181996, acc: 0.60938
+2022-02-14 22:33:39  logger  INFO  global step 9400, epoch: 6, batch: 960, loss: 0.51277,speed: 0.35 step/s, lr: 0.0181571, acc: 0.78125
+2022-02-14 22:34:09  logger  INFO  global step 9500, epoch: 6, batch: 1060, loss: 0.30190,speed: 0.33 step/s, lr: 0.0181146, acc: 0.90625
+2022-02-14 22:34:37  logger  INFO  global step 9600, epoch: 6, batch: 1160, loss: 0.55559,speed: 0.36 step/s, lr: 0.0180721, acc: 0.82812
+2022-02-14 22:35:05  logger  INFO  global step 9700, epoch: 6, batch: 1260, loss: 0.50931,speed: 0.36 step/s, lr: 0.0180296, acc: 0.81250
+2022-02-14 22:35:32  logger  INFO  global step 9800, epoch: 6, batch: 1360, loss: 0.49636,speed: 0.37 step/s, lr: 0.0179871, acc: 0.79688
+2022-02-14 22:36:01  logger  INFO  global step 9900, epoch: 6, batch: 1460, loss: 0.30147,speed: 0.35 step/s, lr: 0.0179446, acc: 0.84375
+2022-02-14 22:36:30  logger  INFO  global step 10000, epoch: 6, batch: 1560, loss: 0.38417,speed: 0.34 step/s, lr: 0.0179021, acc: 0.87500
+2022-02-14 22:36:58  logger  INFO  global step 10100, epoch: 6, batch: 1660, loss: 0.57495,speed: 0.36 step/s, lr: 0.0178596, acc: 0.71875
+2022-02-14 22:38:25  logger  INFO  eval loss: 0.26718, accu: 0.90632
+2022-02-14 22:38:25  logger  INFO  tested : 0.9063158
+2022-02-14 22:38:45  logger  INFO  global step 10200, epoch: 7, batch: 72, loss: 0.55742,speed: 0.09 step/s, lr: 0.0178170, acc: 0.85938
+2022-02-14 22:39:15  logger  INFO  global step 10300, epoch: 7, batch: 172, loss: 0.42557,speed: 0.33 step/s, lr: 0.0177745, acc: 0.81250
+2022-02-14 22:39:43  logger  INFO  global step 10400, epoch: 7, batch: 272, loss: 0.79383,speed: 0.35 step/s, lr: 0.0177320, acc: 0.64062
+2022-02-14 22:40:12  logger  INFO  global step 10500, epoch: 7, batch: 372, loss: 0.59308,speed: 0.35 step/s, lr: 0.0176895, acc: 0.85938
+2022-02-14 22:40:41  logger  INFO  global step 10600, epoch: 7, batch: 472, loss: 0.34406,speed: 0.35 step/s, lr: 0.0176470, acc: 0.93750
+2022-02-14 22:41:11  logger  INFO  global step 10700, epoch: 7, batch: 572, loss: 0.50553,speed: 0.33 step/s, lr: 0.0176045, acc: 0.73438
+2022-02-14 22:41:38  logger  INFO  global step 10800, epoch: 7, batch: 672, loss: 0.38637,speed: 0.36 step/s, lr: 0.0175620, acc: 0.81250
+2022-02-14 22:42:08  logger  INFO  global step 10900, epoch: 7, batch: 772, loss: 0.39603,speed: 0.34 step/s, lr: 0.0175195, acc: 0.85938
+2022-02-14 22:42:36  logger  INFO  global step 11000, epoch: 7, batch: 872, loss: 0.78944,speed: 0.35 step/s, lr: 0.0174769, acc: 0.59375
+2022-02-14 22:43:06  logger  INFO  global step 11100, epoch: 7, batch: 972, loss: 0.77171,speed: 0.33 step/s, lr: 0.0174344, acc: 0.62500
+2022-02-14 22:43:37  logger  INFO  global step 11200, epoch: 7, batch: 1072, loss: 0.68004,speed: 0.33 step/s, lr: 0.0173919, acc: 0.64062
+2022-02-14 22:44:07  logger  INFO  global step 11300, epoch: 7, batch: 1172, loss: 0.77580,speed: 0.33 step/s, lr: 0.0173494, acc: 0.59375
+2022-02-14 22:44:37  logger  INFO  global step 11400, epoch: 7, batch: 1272, loss: 0.73854,speed: 0.34 step/s, lr: 0.0173069, acc: 0.64062
+2022-02-14 22:45:03  logger  INFO  global step 11500, epoch: 7, batch: 1372, loss: 0.46971,speed: 0.38 step/s, lr: 0.0172644, acc: 0.81250
+2022-02-14 22:45:29  logger  INFO  global step 11600, epoch: 7, batch: 1472, loss: 0.46741,speed: 0.38 step/s, lr: 0.0172219, acc: 0.82812
+2022-02-14 22:45:56  logger  INFO  global step 11700, epoch: 7, batch: 1572, loss: 0.42901,speed: 0.38 step/s, lr: 0.0171794, acc: 0.81250
+2022-02-14 22:46:25  logger  INFO  global step 11800, epoch: 7, batch: 1672, loss: 0.50456,speed: 0.34 step/s, lr: 0.0171369, acc: 0.76562
+2022-02-14 22:47:49  logger  INFO  eval loss: 0.26385, accu: 0.90816
+2022-02-14 22:47:49  logger  INFO  tested : 0.9081579
+2022-02-14 22:48:15  logger  INFO  global step 11900, epoch: 8, batch: 84, loss: 0.65135,speed: 0.09 step/s, lr: 0.0170943, acc: 0.75000
+2022-02-14 22:48:45  logger  INFO  global step 12000, epoch: 8, batch: 184, loss: 0.53574,speed: 0.33 step/s, lr: 0.0170518, acc: 0.76562
+2022-02-14 22:49:12  logger  INFO  global step 12100, epoch: 8, batch: 284, loss: 0.34024,speed: 0.37 step/s, lr: 0.0170093, acc: 0.84375
+2022-02-14 22:49:38  logger  INFO  global step 12200, epoch: 8, batch: 384, loss: 0.44428,speed: 0.38 step/s, lr: 0.0169668, acc: 0.85938
+2022-02-14 22:50:08  logger  INFO  global step 12300, epoch: 8, batch: 484, loss: 0.78742,speed: 0.34 step/s, lr: 0.0169243, acc: 0.65625
+2022-02-14 22:50:37  logger  INFO  global step 12400, epoch: 8, batch: 584, loss: 0.42887,speed: 0.35 step/s, lr: 0.0168818, acc: 0.85938
+2022-02-14 22:51:08  logger  INFO  global step 12500, epoch: 8, batch: 684, loss: 0.54581,speed: 0.31 step/s, lr: 0.0168393, acc: 0.78125
+2022-02-14 22:51:39  logger  INFO  global step 12600, epoch: 8, batch: 784, loss: 0.34221,speed: 0.33 step/s, lr: 0.0167968, acc: 0.85938
+2022-02-14 22:52:09  logger  INFO  global step 12700, epoch: 8, batch: 884, loss: 0.43378,speed: 0.33 step/s, lr: 0.0167543, acc: 0.78125
+2022-02-14 22:52:36  logger  INFO  global step 12800, epoch: 8, batch: 984, loss: 0.25166,speed: 0.37 step/s, lr: 0.0167117, acc: 0.90625
+2022-02-14 22:53:02  logger  INFO  global step 12900, epoch: 8, batch: 1084, loss: 0.74811,speed: 0.37 step/s, lr: 0.0166692, acc: 0.68750
+2022-02-14 22:53:32  logger  INFO  global step 13000, epoch: 8, batch: 1184, loss: 0.40770,speed: 0.34 step/s, lr: 0.0166267, acc: 0.85938
+2022-02-14 22:54:03  logger  INFO  global step 13100, epoch: 8, batch: 1284, loss: 0.34262,speed: 0.32 step/s, lr: 0.0165842, acc: 0.85938
+2022-02-14 22:54:35  logger  INFO  global step 13200, epoch: 8, batch: 1384, loss: 0.56272,speed: 0.31 step/s, lr: 0.0165417, acc: 0.70312
+2022-02-14 22:55:03  logger  INFO  global step 13300, epoch: 8, batch: 1484, loss: 0.67926,speed: 0.36 step/s, lr: 0.0164992, acc: 0.70312
+2022-02-14 22:55:31  logger  INFO  global step 13400, epoch: 8, batch: 1584, loss: 0.81041,speed: 0.36 step/s, lr: 0.0164567, acc: 0.64062
+2022-02-14 22:56:01  logger  INFO  global step 13500, epoch: 8, batch: 1684, loss: 0.61088,speed: 0.33 step/s, lr: 0.0164142, acc: 0.70312
+2022-02-14 22:57:21  logger  INFO  eval loss: 0.25424, accu: 0.91158
+2022-02-14 22:57:22  logger  INFO  tested : 0.91157895
+2022-02-14 22:57:51  logger  INFO  global step 13600, epoch: 9, batch: 96, loss: 0.62971,speed: 0.09 step/s, lr: 0.0163717, acc: 0.75000
+2022-02-14 22:58:19  logger  INFO  global step 13700, epoch: 9, batch: 196, loss: 0.26988,speed: 0.36 step/s, lr: 0.0163291, acc: 0.92188
+2022-02-14 22:58:48  logger  INFO  global step 13800, epoch: 9, batch: 296, loss: 0.92017,speed: 0.35 step/s, lr: 0.0162866, acc: 0.56250
+2022-02-14 22:59:17  logger  INFO  global step 13900, epoch: 9, batch: 396, loss: 0.34656,speed: 0.34 step/s, lr: 0.0162441, acc: 0.84375
+2022-02-14 22:59:43  logger  INFO  global step 14000, epoch: 9, batch: 496, loss: 0.54068,speed: 0.37 step/s, lr: 0.0162016, acc: 0.73438
+2022-02-14 23:00:15  logger  INFO  global step 14100, epoch: 9, batch: 596, loss: 0.49229,speed: 0.32 step/s, lr: 0.0161591, acc: 0.79688
+2022-02-14 23:00:45  logger  INFO  global step 14200, epoch: 9, batch: 696, loss: 0.56224,speed: 0.33 step/s, lr: 0.0161166, acc: 0.75000
+2022-02-14 23:01:15  logger  INFO  global step 14300, epoch: 9, batch: 796, loss: 0.64698,speed: 0.34 step/s, lr: 0.0160741, acc: 0.67188
+2022-02-14 23:01:42  logger  INFO  global step 14400, epoch: 9, batch: 896, loss: 0.56903,speed: 0.37 step/s, lr: 0.0160316, acc: 0.73438
+2022-02-14 23:02:08  logger  INFO  global step 14500, epoch: 9, batch: 996, loss: 0.68425,speed: 0.37 step/s, lr: 0.0159890, acc: 0.71875
+2022-02-14 23:02:35  logger  INFO  global step 14600, epoch: 9, batch: 1096, loss: 0.42486,speed: 0.38 step/s, lr: 0.0159465, acc: 0.85938
+2022-02-14 23:03:05  logger  INFO  global step 14700, epoch: 9, batch: 1196, loss: 0.41329,speed: 0.33 step/s, lr: 0.0159040, acc: 0.81250
+2022-02-14 23:03:35  logger  INFO  global step 14800, epoch: 9, batch: 1296, loss: 0.41660,speed: 0.33 step/s, lr: 0.0158615, acc: 0.82812
+2022-02-14 23:04:03  logger  INFO  global step 14900, epoch: 9, batch: 1396, loss: 0.25586,speed: 0.36 step/s, lr: 0.0158190, acc: 0.89062
+2022-02-14 23:04:34  logger  INFO  global step 15000, epoch: 9, batch: 1496, loss: 0.31635,speed: 0.32 step/s, lr: 0.0157765, acc: 0.87500
+2022-02-14 23:05:06  logger  INFO  global step 15100, epoch: 9, batch: 1596, loss: 0.20920,speed: 0.31 step/s, lr: 0.0157340, acc: 0.92188
+2022-02-14 23:06:55  logger  INFO  eval loss: 0.26274, accu: 0.91039
+2022-02-14 23:06:55  logger  INFO  tested : 0.9103947
+2022-02-14 23:06:58  logger  INFO  global step 15200, epoch: 10, batch: 8, loss: 0.37111,speed: 0.09 step/s, lr: 0.0156915, acc: 0.89062
+2022-02-14 23:07:27  logger  INFO  global step 15300, epoch: 10, batch: 108, loss: 0.72047,speed: 0.35 step/s, lr: 0.0156490, acc: 0.70312
+2022-02-14 23:07:54  logger  INFO  global step 15400, epoch: 10, batch: 208, loss: 0.57840,speed: 0.36 step/s, lr: 0.0156064, acc: 0.73438
+2022-02-14 23:08:24  logger  INFO  global step 15500, epoch: 10, batch: 308, loss: 0.41280,speed: 0.34 step/s, lr: 0.0155639, acc: 0.81250
+2022-02-14 23:08:52  logger  INFO  global step 15600, epoch: 10, batch: 408, loss: 0.68599,speed: 0.36 step/s, lr: 0.0155214, acc: 0.70312
+2022-02-14 23:09:21  logger  INFO  global step 15700, epoch: 10, batch: 508, loss: 0.69209,speed: 0.34 step/s, lr: 0.0154789, acc: 0.62500
+2022-02-14 23:09:49  logger  INFO  global step 15800, epoch: 10, batch: 608, loss: 0.29873,speed: 0.36 step/s, lr: 0.0154364, acc: 0.89062
+2022-02-14 23:10:19  logger  INFO  global step 15900, epoch: 10, batch: 708, loss: 0.58899,speed: 0.33 step/s, lr: 0.0153939, acc: 0.68750
+2022-02-14 23:10:50  logger  INFO  global step 16000, epoch: 10, batch: 808, loss: 0.25806,speed: 0.32 step/s, lr: 0.0153514, acc: 0.89062
+2022-02-14 23:11:20  logger  INFO  global step 16100, epoch: 10, batch: 908, loss: 0.67672,speed: 0.33 step/s, lr: 0.0153089, acc: 0.65625
+2022-02-14 23:11:51  logger  INFO  global step 16200, epoch: 10, batch: 1008, loss: 0.38508,speed: 0.32 step/s, lr: 0.0152664, acc: 0.87500
+2022-02-14 23:12:23  logger  INFO  global step 16300, epoch: 10, batch: 1108, loss: 0.34520,speed: 0.31 step/s, lr: 0.0152238, acc: 0.85938
+2022-02-14 23:12:53  logger  INFO  global step 16400, epoch: 10, batch: 1208, loss: 0.34365,speed: 0.33 step/s, lr: 0.0151813, acc: 0.89062
+2022-02-14 23:13:23  logger  INFO  global step 16500, epoch: 10, batch: 1308, loss: 0.25337,speed: 0.33 step/s, lr: 0.0151388, acc: 0.92188
+2022-02-14 23:13:53  logger  INFO  global step 16600, epoch: 10, batch: 1408, loss: 0.42808,speed: 0.32 step/s, lr: 0.0150963, acc: 0.85938
+2022-02-14 23:14:21  logger  INFO  global step 16700, epoch: 10, batch: 1508, loss: 0.24935,speed: 0.36 step/s, lr: 0.0150538, acc: 0.93750
+2022-02-14 23:14:47  logger  INFO  global step 16800, epoch: 10, batch: 1608, loss: 0.31986,speed: 0.38 step/s, lr: 0.0150113, acc: 0.85938
+2022-02-14 23:16:32  logger  INFO  eval loss: 0.25344, accu: 0.91026
+2022-02-14 23:16:32  logger  INFO  tested : 0.9102632
+2022-02-14 23:16:37  logger  INFO  global step 16900, epoch: 11, batch: 20, loss: 0.78007,speed: 0.09 step/s, lr: 0.0149688, acc: 0.68750
+2022-02-14 23:17:06  logger  INFO  global step 17000, epoch: 11, batch: 120, loss: 0.85086,speed: 0.34 step/s, lr: 0.0149263, acc: 0.60938
+2022-02-14 23:17:37  logger  INFO  global step 17100, epoch: 11, batch: 220, loss: 0.34488,speed: 0.33 step/s, lr: 0.0148838, acc: 0.87500
+2022-02-14 23:18:08  logger  INFO  global step 17200, epoch: 11, batch: 320, loss: 0.32988,speed: 0.32 step/s, lr: 0.0148412, acc: 0.90625
+2022-02-14 23:18:37  logger  INFO  global step 17300, epoch: 11, batch: 420, loss: 0.28324,speed: 0.35 step/s, lr: 0.0147987, acc: 0.93750
+2022-02-14 23:19:05  logger  INFO  global step 17400, epoch: 11, batch: 520, loss: 0.28000,speed: 0.35 step/s, lr: 0.0147562, acc: 0.92188
+2022-02-14 23:19:36  logger  INFO  global step 17500, epoch: 11, batch: 620, loss: 0.46478,speed: 0.33 step/s, lr: 0.0147137, acc: 0.81250
+2022-02-14 23:20:03  logger  INFO  global step 17600, epoch: 11, batch: 720, loss: 0.37470,speed: 0.37 step/s, lr: 0.0146712, acc: 0.92188
+2022-02-14 23:20:29  logger  INFO  global step 17700, epoch: 11, batch: 820, loss: 0.17861,speed: 0.37 step/s, lr: 0.0146287, acc: 0.95312
+2022-02-14 23:20:57  logger  INFO  global step 17800, epoch: 11, batch: 920, loss: 0.79321,speed: 0.36 step/s, lr: 0.0145862, acc: 0.56250
+2022-02-14 23:21:28  logger  INFO  global step 17900, epoch: 11, batch: 1020, loss: 0.39420,speed: 0.33 step/s, lr: 0.0145437, acc: 0.82812
+2022-02-14 23:21:57  logger  INFO  global step 18000, epoch: 11, batch: 1120, loss: 0.41116,speed: 0.34 step/s, lr: 0.0145011, acc: 0.85938
+2022-02-14 23:22:27  logger  INFO  global step 18100, epoch: 11, batch: 1220, loss: 0.25725,speed: 0.33 step/s, lr: 0.0144586, acc: 0.87500
+2022-02-14 23:22:53  logger  INFO  global step 18200, epoch: 11, batch: 1320, loss: 0.20679,speed: 0.38 step/s, lr: 0.0144161, acc: 0.93750
+2022-02-14 23:23:21  logger  INFO  global step 18300, epoch: 11, batch: 1420, loss: 0.68893,speed: 0.36 step/s, lr: 0.0143736, acc: 0.68750
+2022-02-14 23:23:51  logger  INFO  global step 18400, epoch: 11, batch: 1520, loss: 0.33046,speed: 0.33 step/s, lr: 0.0143311, acc: 0.90625
+2022-02-14 23:24:22  logger  INFO  global step 18500, epoch: 11, batch: 1620, loss: 0.47369,speed: 0.33 step/s, lr: 0.0142886, acc: 0.76562
+2022-02-14 23:26:00  logger  INFO  eval loss: 0.25840, accu: 0.90829
+2022-02-14 23:26:01  logger  INFO  tested : 0.9082895
+2022-02-14 23:26:09  logger  INFO  global step 18600, epoch: 12, batch: 32, loss: 0.49373,speed: 0.09 step/s, lr: 0.0142461, acc: 0.81250
+2022-02-14 23:26:37  logger  INFO  global step 18700, epoch: 12, batch: 132, loss: 0.38464,speed: 0.36 step/s, lr: 0.0142036, acc: 0.85938
+2022-02-14 23:27:08  logger  INFO  global step 18800, epoch: 12, batch: 232, loss: 0.47555,speed: 0.32 step/s, lr: 0.0141611, acc: 0.81250
+2022-02-14 23:27:39  logger  INFO  global step 18900, epoch: 12, batch: 332, loss: 0.98805,speed: 0.33 step/s, lr: 0.0141185, acc: 0.60938
+2022-02-14 23:28:08  logger  INFO  global step 19000, epoch: 12, batch: 432, loss: 0.87403,speed: 0.35 step/s, lr: 0.0140760, acc: 0.64062
+2022-02-14 23:28:34  logger  INFO  global step 19100, epoch: 12, batch: 532, loss: 0.44715,speed: 0.38 step/s, lr: 0.0140335, acc: 0.81250
+2022-02-14 23:29:01  logger  INFO  global step 19200, epoch: 12, batch: 632, loss: 0.49866,speed: 0.37 step/s, lr: 0.0139910, acc: 0.79688
+2022-02-14 23:29:29  logger  INFO  global step 19300, epoch: 12, batch: 732, loss: 0.68291,speed: 0.36 step/s, lr: 0.0139485, acc: 0.67188
+2022-02-14 23:29:56  logger  INFO  global step 19400, epoch: 12, batch: 832, loss: 0.80032,speed: 0.38 step/s, lr: 0.0139060, acc: 0.62500
+2022-02-14 23:30:23  logger  INFO  global step 19500, epoch: 12, batch: 932, loss: 0.30106,speed: 0.36 step/s, lr: 0.0138635, acc: 0.93750
+2022-02-14 23:30:55  logger  INFO  global step 19600, epoch: 12, batch: 1032, loss: 0.34308,speed: 0.32 step/s, lr: 0.0138210, acc: 0.87500
+2022-02-14 23:31:22  logger  INFO  global step 19700, epoch: 12, batch: 1132, loss: 0.49620,speed: 0.36 step/s, lr: 0.0137785, acc: 0.81250
+2022-02-14 23:31:50  logger  INFO  global step 19800, epoch: 12, batch: 1232, loss: 0.66081,speed: 0.36 step/s, lr: 0.0137359, acc: 0.68750
+2022-02-14 23:32:16  logger  INFO  global step 19900, epoch: 12, batch: 1332, loss: 0.63831,speed: 0.38 step/s, lr: 0.0136934, acc: 0.68750
+2022-02-14 23:32:43  logger  INFO  global step 20000, epoch: 12, batch: 1432, loss: 0.42705,speed: 0.37 step/s, lr: 0.0136509, acc: 0.87500
+2022-02-14 23:33:12  logger  INFO  global step 20100, epoch: 12, batch: 1532, loss: 0.27675,speed: 0.35 step/s, lr: 0.0136084, acc: 0.89062
+2022-02-14 23:33:38  logger  INFO  global step 20200, epoch: 12, batch: 1632, loss: 0.55947,speed: 0.38 step/s, lr: 0.0135659, acc: 0.75000
+2022-02-14 23:35:12  logger  INFO  eval loss: 0.25972, accu: 0.90671
+2022-02-14 23:35:12  logger  INFO  tested : 0.9067105
+2022-02-14 23:35:25  logger  INFO  global step 20300, epoch: 13, batch: 44, loss: 0.62854,speed: 0.09 step/s, lr: 0.0135234, acc: 0.70312
+2022-02-14 23:35:54  logger  INFO  global step 20400, epoch: 13, batch: 144, loss: 0.28591,speed: 0.34 step/s, lr: 0.0134809, acc: 0.87500
+2022-02-14 23:36:24  logger  INFO  global step 20500, epoch: 13, batch: 244, loss: 0.28054,speed: 0.33 step/s, lr: 0.0134384, acc: 0.85938
+2022-02-14 23:36:51  logger  INFO  global step 20600, epoch: 13, batch: 344, loss: 0.31699,speed: 0.37 step/s, lr: 0.0133959, acc: 0.85938
+2022-02-14 23:37:18  logger  INFO  global step 20700, epoch: 13, batch: 444, loss: 0.65804,speed: 0.37 step/s, lr: 0.0133533, acc: 0.71875
+2022-02-14 23:37:48  logger  INFO  global step 20800, epoch: 13, batch: 544, loss: 0.27203,speed: 0.33 step/s, lr: 0.0133108, acc: 0.90625
+2022-02-14 23:38:18  logger  INFO  global step 20900, epoch: 13, batch: 644, loss: 0.73330,speed: 0.33 step/s, lr: 0.0132683, acc: 0.60938
+2022-02-14 23:38:46  logger  INFO  global step 21000, epoch: 13, batch: 744, loss: 0.61643,speed: 0.36 step/s, lr: 0.0132258, acc: 0.78125
+2022-02-14 23:39:18  logger  INFO  global step 21100, epoch: 13, batch: 844, loss: 0.33525,speed: 0.32 step/s, lr: 0.0131833, acc: 0.85938
+2022-02-14 23:39:49  logger  INFO  global step 21200, epoch: 13, batch: 944, loss: 0.27136,speed: 0.32 step/s, lr: 0.0131408, acc: 0.89062
+2022-02-14 23:40:22  logger  INFO  global step 21300, epoch: 13, batch: 1044, loss: 0.41547,speed: 0.31 step/s, lr: 0.0130983, acc: 0.85938
+2022-02-14 23:40:52  logger  INFO  global step 21400, epoch: 13, batch: 1144, loss: 0.45012,speed: 0.33 step/s, lr: 0.0130558, acc: 0.79688
+2022-02-14 23:41:19  logger  INFO  global step 21500, epoch: 13, batch: 1244, loss: 0.41397,speed: 0.37 step/s, lr: 0.0130132, acc: 0.82812
+2022-02-14 23:41:45  logger  INFO  global step 21600, epoch: 13, batch: 1344, loss: 0.35481,speed: 0.38 step/s, lr: 0.0129707, acc: 0.87500
+2022-02-14 23:42:14  logger  INFO  global step 21700, epoch: 13, batch: 1444, loss: 0.62181,speed: 0.35 step/s, lr: 0.0129282, acc: 0.78125
+2022-02-14 23:42:42  logger  INFO  global step 21800, epoch: 13, batch: 1544, loss: 0.45346,speed: 0.35 step/s, lr: 0.0128857, acc: 0.87500
+2022-02-14 23:43:10  logger  INFO  global step 21900, epoch: 13, batch: 1644, loss: 0.76074,speed: 0.35 step/s, lr: 0.0128432, acc: 0.64062
+2022-02-14 23:44:42  logger  INFO  eval loss: 0.25242, accu: 0.91263
+2022-02-14 23:44:42  logger  INFO  tested : 0.9126316
+2022-02-14 23:44:59  logger  INFO  global step 22000, epoch: 14, batch: 56, loss: 0.26971,speed: 0.09 step/s, lr: 0.0128007, acc: 0.92188
+2022-02-14 23:45:29  logger  INFO  global step 22100, epoch: 14, batch: 156, loss: 0.19254,speed: 0.33 step/s, lr: 0.0127582, acc: 0.95312
+2022-02-14 23:45:59  logger  INFO  global step 22200, epoch: 14, batch: 256, loss: 0.53162,speed: 0.33 step/s, lr: 0.0127157, acc: 0.84375
+2022-02-14 23:46:26  logger  INFO  global step 22300, epoch: 14, batch: 356, loss: 0.29270,speed: 0.37 step/s, lr: 0.0126732, acc: 0.93750
+2022-02-14 23:46:54  logger  INFO  global step 22400, epoch: 14, batch: 456, loss: 0.94172,speed: 0.36 step/s, lr: 0.0126306, acc: 0.56250
+2022-02-14 23:47:24  logger  INFO  global step 22500, epoch: 14, batch: 556, loss: 0.81540,speed: 0.34 step/s, lr: 0.0125881, acc: 0.57812
+2022-02-14 23:47:51  logger  INFO  global step 22600, epoch: 14, batch: 656, loss: 0.31426,speed: 0.38 step/s, lr: 0.0125456, acc: 0.89062
+2022-02-14 23:48:20  logger  INFO  global step 22700, epoch: 14, batch: 756, loss: 0.43482,speed: 0.34 step/s, lr: 0.0125031, acc: 0.89062
+2022-02-14 23:48:51  logger  INFO  global step 22800, epoch: 14, batch: 856, loss: 0.37169,speed: 0.33 step/s, lr: 0.0124606, acc: 0.85938
+2022-02-14 23:49:23  logger  INFO  global step 22900, epoch: 14, batch: 956, loss: 0.34206,speed: 0.31 step/s, lr: 0.0124181, acc: 0.87500
+2022-02-14 23:49:53  logger  INFO  global step 23000, epoch: 14, batch: 1056, loss: 0.53655,speed: 0.33 step/s, lr: 0.0123756, acc: 0.78125
+2022-02-14 23:50:21  logger  INFO  global step 23100, epoch: 14, batch: 1156, loss: 0.60926,speed: 0.36 step/s, lr: 0.0123331, acc: 0.71875
+2022-02-14 23:50:48  logger  INFO  global step 23200, epoch: 14, batch: 1256, loss: 0.23649,speed: 0.37 step/s, lr: 0.0122906, acc: 0.92188
+2022-02-14 23:51:14  logger  INFO  global step 23300, epoch: 14, batch: 1356, loss: 0.25232,speed: 0.38 step/s, lr: 0.0122480, acc: 0.90625
+2022-02-14 23:51:40  logger  INFO  global step 23400, epoch: 14, batch: 1456, loss: 0.65487,speed: 0.39 step/s, lr: 0.0122055, acc: 0.70312
+2022-02-14 23:52:09  logger  INFO  global step 23500, epoch: 14, batch: 1556, loss: 0.73797,speed: 0.35 step/s, lr: 0.0121630, acc: 0.57812
+2022-02-14 23:52:39  logger  INFO  global step 23600, epoch: 14, batch: 1656, loss: 0.47484,speed: 0.33 step/s, lr: 0.0121205, acc: 0.78125
+2022-02-14 23:54:07  logger  INFO  eval loss: 0.25206, accu: 0.91342
+2022-02-14 23:54:07  logger  INFO  tested : 0.91342103
+2022-02-14 23:54:27  logger  INFO  global step 23700, epoch: 15, batch: 68, loss: 0.11988,speed: 0.09 step/s, lr: 0.0120780, acc: 1.00000
+2022-02-14 23:54:54  logger  INFO  global step 23800, epoch: 15, batch: 168, loss: 0.34635,speed: 0.37 step/s, lr: 0.0120355, acc: 0.89062
+2022-02-14 23:55:22  logger  INFO  global step 23900, epoch: 15, batch: 268, loss: 0.45346,speed: 0.35 step/s, lr: 0.0119930, acc: 0.84375
+2022-02-14 23:55:52  logger  INFO  global step 24000, epoch: 15, batch: 368, loss: 0.81534,speed: 0.34 step/s, lr: 0.0119505, acc: 0.64062
+2022-02-14 23:56:23  logger  INFO  global step 24100, epoch: 15, batch: 468, loss: 0.35021,speed: 0.32 step/s, lr: 0.0119080, acc: 0.85938
+2022-02-14 23:56:53  logger  INFO  global step 24200, epoch: 15, batch: 568, loss: 0.36041,speed: 0.34 step/s, lr: 0.0118654, acc: 0.84375
+2022-02-14 23:57:21  logger  INFO  global step 24300, epoch: 15, batch: 668, loss: 0.42199,speed: 0.35 step/s, lr: 0.0118229, acc: 0.85938
+2022-02-14 23:57:48  logger  INFO  global step 24400, epoch: 15, batch: 768, loss: 0.26514,speed: 0.37 step/s, lr: 0.0117804, acc: 0.89062
+2022-02-14 23:58:15  logger  INFO  global step 24500, epoch: 15, batch: 868, loss: 0.72361,speed: 0.37 step/s, lr: 0.0117379, acc: 0.64062
+2022-02-14 23:58:44  logger  INFO  global step 24600, epoch: 15, batch: 968, loss: 0.27988,speed: 0.36 step/s, lr: 0.0116954, acc: 0.87500
+2022-02-14 23:59:12  logger  INFO  global step 24700, epoch: 15, batch: 1068, loss: 0.79560,speed: 0.35 step/s, lr: 0.0116529, acc: 0.70312
+2022-02-14 23:59:43  logger  INFO  global step 24800, epoch: 15, batch: 1168, loss: 0.27071,speed: 0.33 step/s, lr: 0.0116104, acc: 0.87500
+2022-02-15 00:00:11  logger  INFO  global step 24900, epoch: 15, batch: 1268, loss: 0.81071,speed: 0.35 step/s, lr: 0.0115679, acc: 0.62500
+2022-02-15 00:00:39  logger  INFO  global step 25000, epoch: 15, batch: 1368, loss: 0.27315,speed: 0.37 step/s, lr: 0.0115254, acc: 0.90625
+2022-02-15 00:01:08  logger  INFO  global step 25100, epoch: 15, batch: 1468, loss: 0.35588,speed: 0.34 step/s, lr: 0.0114828, acc: 0.87500
+2022-02-15 00:01:38  logger  INFO  global step 25200, epoch: 15, batch: 1568, loss: 0.29729,speed: 0.33 step/s, lr: 0.0114403, acc: 0.89062
+2022-02-15 00:02:08  logger  INFO  global step 25300, epoch: 15, batch: 1668, loss: 0.25594,speed: 0.33 step/s, lr: 0.0113978, acc: 0.92188
+2022-02-15 00:03:33  logger  INFO  eval loss: 0.24698, accu: 0.91553
+2022-02-15 00:03:33  logger  INFO  tested : 0.91552633
+2022-02-15 00:03:58  logger  INFO  global step 25400, epoch: 16, batch: 80, loss: 0.32701,speed: 0.09 step/s, lr: 0.0113553, acc: 0.90625
+2022-02-15 00:04:27  logger  INFO  global step 25500, epoch: 16, batch: 180, loss: 0.41770,speed: 0.34 step/s, lr: 0.0113128, acc: 0.84375
+2022-02-15 00:04:54  logger  INFO  global step 25600, epoch: 16, batch: 280, loss: 0.28059,speed: 0.37 step/s, lr: 0.0112703, acc: 0.89062
+2022-02-15 00:05:22  logger  INFO  global step 25700, epoch: 16, batch: 380, loss: 0.57164,speed: 0.36 step/s, lr: 0.0112278, acc: 0.76562
+2022-02-15 00:05:53  logger  INFO  global step 25800, epoch: 16, batch: 480, loss: 0.55970,speed: 0.32 step/s, lr: 0.0111853, acc: 0.71875
+2022-02-15 00:06:23  logger  INFO  global step 25900, epoch: 16, batch: 580, loss: 0.37929,speed: 0.33 step/s, lr: 0.0111427, acc: 0.82812
+2022-02-15 00:06:54  logger  INFO  global step 26000, epoch: 16, batch: 680, loss: 0.75954,speed: 0.33 step/s, lr: 0.0111002, acc: 0.62500
+2022-02-15 00:07:25  logger  INFO  global step 26100, epoch: 16, batch: 780, loss: 0.28314,speed: 0.32 step/s, lr: 0.0110577, acc: 0.89062
+2022-02-15 00:07:56  logger  INFO  global step 26200, epoch: 16, batch: 880, loss: 0.43172,speed: 0.32 step/s, lr: 0.0110152, acc: 0.82812
+2022-02-15 00:08:26  logger  INFO  global step 26300, epoch: 16, batch: 980, loss: 0.27632,speed: 0.33 step/s, lr: 0.0109727, acc: 0.90625
+2022-02-15 00:08:52  logger  INFO  global step 26400, epoch: 16, batch: 1080, loss: 0.39990,speed: 0.38 step/s, lr: 0.0109302, acc: 0.85938
+2022-02-15 00:09:20  logger  INFO  global step 26500, epoch: 16, batch: 1180, loss: 0.42352,speed: 0.36 step/s, lr: 0.0108877, acc: 0.87500
+2022-02-15 00:09:50  logger  INFO  global step 26600, epoch: 16, batch: 1280, loss: 0.52708,speed: 0.33 step/s, lr: 0.0108452, acc: 0.75000
+2022-02-15 00:10:19  logger  INFO  global step 26700, epoch: 16, batch: 1380, loss: 0.48764,speed: 0.35 step/s, lr: 0.0108027, acc: 0.82812
+2022-02-15 00:10:50  logger  INFO  global step 26800, epoch: 16, batch: 1480, loss: 0.39873,speed: 0.32 step/s, lr: 0.0107601, acc: 0.87500
+2022-02-15 00:11:21  logger  INFO  global step 26900, epoch: 16, batch: 1580, loss: 0.69844,speed: 0.32 step/s, lr: 0.0107176, acc: 0.60938
+2022-02-15 00:11:50  logger  INFO  global step 27000, epoch: 16, batch: 1680, loss: 0.30985,speed: 0.35 step/s, lr: 0.0106751, acc: 0.90625
+2022-02-15 00:13:11  logger  INFO  eval loss: 0.25549, accu: 0.91329
+2022-02-15 00:13:12  logger  INFO  tested : 0.9132895
+2022-02-15 00:13:38  logger  INFO  global step 27100, epoch: 17, batch: 92, loss: 0.27958,speed: 0.09 step/s, lr: 0.0106326, acc: 0.87500
+2022-02-15 00:14:09  logger  INFO  global step 27200, epoch: 17, batch: 192, loss: 0.43182,speed: 0.32 step/s, lr: 0.0105901, acc: 0.84375
+2022-02-15 00:14:40  logger  INFO  global step 27300, epoch: 17, batch: 292, loss: 0.94167,speed: 0.32 step/s, lr: 0.0105476, acc: 0.62500
+2022-02-15 00:15:08  logger  INFO  global step 27400, epoch: 17, batch: 392, loss: 0.32918,speed: 0.37 step/s, lr: 0.0105051, acc: 0.85938
+2022-02-15 00:15:38  logger  INFO  global step 27500, epoch: 17, batch: 492, loss: 0.34289,speed: 0.33 step/s, lr: 0.0104626, acc: 0.85938
+2022-02-15 00:16:05  logger  INFO  global step 27600, epoch: 17, batch: 592, loss: 0.87733,speed: 0.36 step/s, lr: 0.0104201, acc: 0.59375
+2022-02-15 00:16:33  logger  INFO  global step 27700, epoch: 17, batch: 692, loss: 1.06131,speed: 0.36 step/s, lr: 0.0103775, acc: 0.57812
+2022-02-15 00:17:01  logger  INFO  global step 27800, epoch: 17, batch: 792, loss: 0.44734,speed: 0.35 step/s, lr: 0.0103350, acc: 0.78125
+2022-02-15 00:17:30  logger  INFO  global step 27900, epoch: 17, batch: 892, loss: 0.53416,speed: 0.35 step/s, lr: 0.0102925, acc: 0.76562
+2022-02-15 00:17:57  logger  INFO  global step 28000, epoch: 17, batch: 992, loss: 0.34870,speed: 0.37 step/s, lr: 0.0102500, acc: 0.89062
+2022-02-15 00:18:24  logger  INFO  global step 28100, epoch: 17, batch: 1092, loss: 0.82856,speed: 0.37 step/s, lr: 0.0102075, acc: 0.65625
+2022-02-15 00:18:55  logger  INFO  global step 28200, epoch: 17, batch: 1192, loss: 0.87401,speed: 0.32 step/s, lr: 0.0101650, acc: 0.57812
+2022-02-15 00:19:23  logger  INFO  global step 28300, epoch: 17, batch: 1292, loss: 0.65627,speed: 0.36 step/s, lr: 0.0101225, acc: 0.70312
+2022-02-15 00:19:50  logger  INFO  global step 28400, epoch: 17, batch: 1392, loss: 0.71636,speed: 0.37 step/s, lr: 0.0100800, acc: 0.65625
+2022-02-15 00:20:17  logger  INFO  global step 28500, epoch: 17, batch: 1492, loss: 0.25780,speed: 0.37 step/s, lr: 0.0100375, acc: 0.92188
+2022-02-15 00:20:45  logger  INFO  global step 28600, epoch: 17, batch: 1592, loss: 0.23415,speed: 0.36 step/s, lr: 0.0099949, acc: 0.89062
+2022-02-15 00:22:33  logger  INFO  eval loss: 0.25044, accu: 0.91368
+2022-02-15 00:22:33  logger  INFO  tested : 0.9136842
+2022-02-15 00:22:34  logger  INFO  global step 28700, epoch: 18, batch: 4, loss: 0.32947,speed: 0.09 step/s, lr: 0.0099524, acc: 0.85938
+2022-02-15 00:23:04  logger  INFO  global step 28800, epoch: 18, batch: 104, loss: 0.25658,speed: 0.33 step/s, lr: 0.0099099, acc: 0.90625
+2022-02-15 00:23:37  logger  INFO  global step 28900, epoch: 18, batch: 204, loss: 0.36576,speed: 0.30 step/s, lr: 0.0098674, acc: 0.85938
+2022-02-15 00:24:07  logger  INFO  global step 29000, epoch: 18, batch: 304, loss: 0.77928,speed: 0.33 step/s, lr: 0.0098249, acc: 0.60938
+2022-02-15 00:24:37  logger  INFO  global step 29100, epoch: 18, batch: 404, loss: 0.32132,speed: 0.33 step/s, lr: 0.0097824, acc: 0.89062
+2022-02-15 00:25:05  logger  INFO  global step 29200, epoch: 18, batch: 504, loss: 0.35653,speed: 0.36 step/s, lr: 0.0097399, acc: 0.82812
+2022-02-15 00:25:36  logger  INFO  global step 29300, epoch: 18, batch: 604, loss: 0.78277,speed: 0.32 step/s, lr: 0.0096974, acc: 0.67188
+2022-02-15 00:26:07  logger  INFO  global step 29400, epoch: 18, batch: 704, loss: 0.56477,speed: 0.32 step/s, lr: 0.0096548, acc: 0.75000
+2022-02-15 00:26:36  logger  INFO  global step 29500, epoch: 18, batch: 804, loss: 0.35570,speed: 0.34 step/s, lr: 0.0096123, acc: 0.85938
+2022-02-15 00:27:07  logger  INFO  global step 29600, epoch: 18, batch: 904, loss: 0.27584,speed: 0.32 step/s, lr: 0.0095698, acc: 0.89062
+2022-02-15 00:27:36  logger  INFO  global step 29700, epoch: 18, batch: 1004, loss: 0.33505,speed: 0.34 step/s, lr: 0.0095273, acc: 0.89062
+2022-02-15 00:28:06  logger  INFO  global step 29800, epoch: 18, batch: 1104, loss: 0.45720,speed: 0.34 step/s, lr: 0.0094848, acc: 0.79688
+2022-02-15 00:28:35  logger  INFO  global step 29900, epoch: 18, batch: 1204, loss: 0.66341,speed: 0.34 step/s, lr: 0.0094423, acc: 0.71875
+2022-02-15 00:29:04  logger  INFO  global step 30000, epoch: 18, batch: 1304, loss: 0.49645,speed: 0.35 step/s, lr: 0.0093998, acc: 0.81250
+2022-02-15 00:29:34  logger  INFO  global step 30100, epoch: 18, batch: 1404, loss: 0.37652,speed: 0.33 step/s, lr: 0.0093573, acc: 0.90625
+2022-02-15 00:30:04  logger  INFO  global step 30200, epoch: 18, batch: 1504, loss: 0.42527,speed: 0.34 step/s, lr: 0.0093148, acc: 0.81250
+2022-02-15 00:30:34  logger  INFO  global step 30300, epoch: 18, batch: 1604, loss: 0.29281,speed: 0.33 step/s, lr: 0.0092722, acc: 0.92188
+2022-02-15 00:32:14  logger  INFO  eval loss: 0.23910, accu: 0.91526
+2022-02-15 00:32:15  logger  INFO  tested : 0.9152632
+2022-02-15 00:32:19  logger  INFO  global step 30400, epoch: 19, batch: 16, loss: 0.47519,speed: 0.09 step/s, lr: 0.0092297, acc: 0.76562
+2022-02-15 00:32:48  logger  INFO  global step 30500, epoch: 19, batch: 116, loss: 0.44293,speed: 0.35 step/s, lr: 0.0091872, acc: 0.79688
+2022-02-15 00:33:15  logger  INFO  global step 30600, epoch: 19, batch: 216, loss: 0.43399,speed: 0.36 step/s, lr: 0.0091447, acc: 0.87500
+2022-02-15 00:33:42  logger  INFO  global step 30700, epoch: 19, batch: 316, loss: 0.40022,speed: 0.37 step/s, lr: 0.0091022, acc: 0.85938
+2022-02-15 00:34:12  logger  INFO  global step 30800, epoch: 19, batch: 416, loss: 0.16418,speed: 0.34 step/s, lr: 0.0090597, acc: 0.95312
+2022-02-15 00:34:40  logger  INFO  global step 30900, epoch: 19, batch: 516, loss: 0.47992,speed: 0.35 step/s, lr: 0.0090172, acc: 0.85938
+2022-02-15 00:35:11  logger  INFO  global step 31000, epoch: 19, batch: 616, loss: 0.34441,speed: 0.33 step/s, lr: 0.0089747, acc: 0.89062
+2022-02-15 00:35:41  logger  INFO  global step 31100, epoch: 19, batch: 716, loss: 0.54402,speed: 0.33 step/s, lr: 0.0089322, acc: 0.76562
+2022-02-15 00:36:12  logger  INFO  global step 31200, epoch: 19, batch: 816, loss: 0.87858,speed: 0.32 step/s, lr: 0.0088896, acc: 0.59375
+2022-02-15 00:36:40  logger  INFO  global step 31300, epoch: 19, batch: 916, loss: 0.54274,speed: 0.36 step/s, lr: 0.0088471, acc: 0.81250
+2022-02-15 00:37:07  logger  INFO  global step 31400, epoch: 19, batch: 1016, loss: 0.44593,speed: 0.37 step/s, lr: 0.0088046, acc: 0.82812
+2022-02-15 00:37:34  logger  INFO  global step 31500, epoch: 19, batch: 1116, loss: 0.23371,speed: 0.36 step/s, lr: 0.0087621, acc: 0.90625
+2022-02-15 00:38:01  logger  INFO  global step 31600, epoch: 19, batch: 1216, loss: 0.71338,speed: 0.37 step/s, lr: 0.0087196, acc: 0.70312
+2022-02-15 00:38:32  logger  INFO  global step 31700, epoch: 19, batch: 1316, loss: 0.46254,speed: 0.33 step/s, lr: 0.0086771, acc: 0.78125
+2022-02-15 00:39:03  logger  INFO  global step 31800, epoch: 19, batch: 1416, loss: 0.37672,speed: 0.32 step/s, lr: 0.0086346, acc: 0.85938
+2022-02-15 00:39:35  logger  INFO  global step 31900, epoch: 19, batch: 1516, loss: 0.76305,speed: 0.31 step/s, lr: 0.0085921, acc: 0.64062
+2022-02-15 00:40:03  logger  INFO  global step 32000, epoch: 19, batch: 1616, loss: 0.82441,speed: 0.36 step/s, lr: 0.0085496, acc: 0.65625
+2022-02-15 00:41:41  logger  INFO  eval loss: 0.24854, accu: 0.91395
+2022-02-15 00:41:41  logger  INFO  tested : 0.91394734
+2022-02-15 00:41:50  logger  INFO  global step 32100, epoch: 20, batch: 28, loss: 0.77894,speed: 0.09 step/s, lr: 0.0085070, acc: 0.53125
+2022-02-15 00:42:21  logger  INFO  global step 32200, epoch: 20, batch: 128, loss: 0.20556,speed: 0.33 step/s, lr: 0.0084645, acc: 0.93750
+2022-02-15 00:42:49  logger  INFO  global step 32300, epoch: 20, batch: 228, loss: 0.30026,speed: 0.35 step/s, lr: 0.0084220, acc: 0.90625
+2022-02-15 00:43:15  logger  INFO  global step 32400, epoch: 20, batch: 328, loss: 0.53767,speed: 0.39 step/s, lr: 0.0083795, acc: 0.78125
+2022-02-15 00:43:43  logger  INFO  global step 32500, epoch: 20, batch: 428, loss: 0.44249,speed: 0.36 step/s, lr: 0.0083370, acc: 0.81250
+2022-02-15 00:44:12  logger  INFO  global step 32600, epoch: 20, batch: 528, loss: 0.58790,speed: 0.34 step/s, lr: 0.0082945, acc: 0.71875
+2022-02-15 00:44:41  logger  INFO  global step 32700, epoch: 20, batch: 628, loss: 0.21962,speed: 0.34 step/s, lr: 0.0082520, acc: 0.87500
+2022-02-15 00:45:13  logger  INFO  global step 32800, epoch: 20, batch: 728, loss: 0.45993,speed: 0.31 step/s, lr: 0.0082095, acc: 0.82812
+2022-02-15 00:45:44  logger  INFO  global step 32900, epoch: 20, batch: 828, loss: 0.36930,speed: 0.32 step/s, lr: 0.0081669, acc: 0.87500
+2022-02-15 00:46:15  logger  INFO  global step 33000, epoch: 20, batch: 928, loss: 0.30086,speed: 0.33 step/s, lr: 0.0081244, acc: 0.87500
+2022-02-15 00:46:45  logger  INFO  global step 33100, epoch: 20, batch: 1028, loss: 0.42547,speed: 0.34 step/s, lr: 0.0080819, acc: 0.85938
+2022-02-15 00:47:14  logger  INFO  global step 33200, epoch: 20, batch: 1128, loss: 0.83251,speed: 0.35 step/s, lr: 0.0080394, acc: 0.59375
+2022-02-15 00:47:40  logger  INFO  global step 33300, epoch: 20, batch: 1228, loss: 0.47702,speed: 0.38 step/s, lr: 0.0079969, acc: 0.85938
+2022-02-15 00:48:07  logger  INFO  global step 33400, epoch: 20, batch: 1328, loss: 0.46198,speed: 0.37 step/s, lr: 0.0079544, acc: 0.81250
+2022-02-15 00:48:34  logger  INFO  global step 33500, epoch: 20, batch: 1428, loss: 0.50203,speed: 0.36 step/s, lr: 0.0079119, acc: 0.78125
+2022-02-15 00:49:02  logger  INFO  global step 33600, epoch: 20, batch: 1528, loss: 0.33412,speed: 0.35 step/s, lr: 0.0078694, acc: 0.89062
+2022-02-15 00:49:30  logger  INFO  global step 33700, epoch: 20, batch: 1628, loss: 0.42634,speed: 0.37 step/s, lr: 0.0078269, acc: 0.81250
+2022-02-15 00:51:04  logger  INFO  eval loss: 0.23670, accu: 0.91750
+2022-02-15 00:51:04  logger  INFO  tested : 0.9175
+2022-02-15 00:51:17  logger  INFO  global step 33800, epoch: 21, batch: 40, loss: 0.40248,speed: 0.09 step/s, lr: 0.0077843, acc: 0.85938
+2022-02-15 00:51:46  logger  INFO  global step 33900, epoch: 21, batch: 140, loss: 0.52951,speed: 0.34 step/s, lr: 0.0077418, acc: 0.73438
+2022-02-15 00:52:17  logger  INFO  global step 34000, epoch: 21, batch: 240, loss: 0.58217,speed: 0.33 step/s, lr: 0.0076993, acc: 0.70312
+2022-02-15 00:52:49  logger  INFO  global step 34100, epoch: 21, batch: 340, loss: 0.67805,speed: 0.31 step/s, lr: 0.0076568, acc: 0.73438
+2022-02-15 00:53:17  logger  INFO  global step 34200, epoch: 21, batch: 440, loss: 0.59559,speed: 0.36 step/s, lr: 0.0076143, acc: 0.78125
+2022-02-15 00:53:47  logger  INFO  global step 34300, epoch: 21, batch: 540, loss: 0.17229,speed: 0.34 step/s, lr: 0.0075718, acc: 0.96875
+2022-02-15 00:54:15  logger  INFO  global step 34400, epoch: 21, batch: 640, loss: 0.44697,speed: 0.36 step/s, lr: 0.0075293, acc: 0.82812
+2022-02-15 00:54:43  logger  INFO  global step 34500, epoch: 21, batch: 740, loss: 0.20122,speed: 0.35 step/s, lr: 0.0074868, acc: 0.95312
+2022-02-15 00:55:11  logger  INFO  global step 34600, epoch: 21, batch: 840, loss: 0.96620,speed: 0.35 step/s, lr: 0.0074443, acc: 0.54688
+2022-02-15 00:55:44  logger  INFO  global step 34700, epoch: 21, batch: 940, loss: 0.36859,speed: 0.31 step/s, lr: 0.0074017, acc: 0.87500
+2022-02-15 00:56:16  logger  INFO  global step 34800, epoch: 21, batch: 1040, loss: 0.44129,speed: 0.31 step/s, lr: 0.0073592, acc: 0.78125
+2022-02-15 00:56:46  logger  INFO  global step 34900, epoch: 21, batch: 1140, loss: 0.37936,speed: 0.33 step/s, lr: 0.0073167, acc: 0.87500
+2022-02-15 00:57:16  logger  INFO  global step 35000, epoch: 21, batch: 1240, loss: 0.39453,speed: 0.33 step/s, lr: 0.0072742, acc: 0.81250
+2022-02-15 00:57:43  logger  INFO  global step 35100, epoch: 21, batch: 1340, loss: 0.23102,speed: 0.36 step/s, lr: 0.0072317, acc: 0.93750
+2022-02-15 00:58:12  logger  INFO  global step 35200, epoch: 21, batch: 1440, loss: 0.25230,speed: 0.35 step/s, lr: 0.0071892, acc: 0.92188
+2022-02-15 00:58:39  logger  INFO  global step 35300, epoch: 21, batch: 1540, loss: 0.19991,speed: 0.37 step/s, lr: 0.0071467, acc: 0.93750
+2022-02-15 00:59:09  logger  INFO  global step 35400, epoch: 21, batch: 1640, loss: 0.34473,speed: 0.33 step/s, lr: 0.0071042, acc: 0.85938
+2022-02-15 01:00:40  logger  INFO  eval loss: 0.24350, accu: 0.91408
+2022-02-15 01:00:40  logger  INFO  tested : 0.91407895
+2022-02-15 01:00:56  logger  INFO  global step 35500, epoch: 22, batch: 52, loss: 0.35780,speed: 0.09 step/s, lr: 0.0070617, acc: 0.84375
+2022-02-15 01:01:25  logger  INFO  global step 35600, epoch: 22, batch: 152, loss: 0.40617,speed: 0.34 step/s, lr: 0.0070191, acc: 0.85938
+2022-02-15 01:01:52  logger  INFO  global step 35700, epoch: 22, batch: 252, loss: 0.30918,speed: 0.38 step/s, lr: 0.0069766, acc: 0.90625
+2022-02-15 01:02:22  logger  INFO  global step 35800, epoch: 22, batch: 352, loss: 0.67411,speed: 0.33 step/s, lr: 0.0069341, acc: 0.68750
+2022-02-15 01:02:50  logger  INFO  global step 35900, epoch: 22, batch: 452, loss: 0.38682,speed: 0.36 step/s, lr: 0.0068916, acc: 0.82812
+2022-02-15 01:03:19  logger  INFO  global step 36000, epoch: 22, batch: 552, loss: 0.47203,speed: 0.35 step/s, lr: 0.0068491, acc: 0.75000
+2022-02-15 01:03:48  logger  INFO  global step 36100, epoch: 22, batch: 652, loss: 0.35021,speed: 0.34 step/s, lr: 0.0068066, acc: 0.87500
+2022-02-15 01:04:17  logger  INFO  global step 36200, epoch: 22, batch: 752, loss: 0.35442,speed: 0.35 step/s, lr: 0.0067641, acc: 0.84375
+2022-02-15 01:04:44  logger  INFO  global step 36300, epoch: 22, batch: 852, loss: 0.29170,speed: 0.37 step/s, lr: 0.0067216, acc: 0.89062
+2022-02-15 01:05:11  logger  INFO  global step 36400, epoch: 22, batch: 952, loss: 0.32971,speed: 0.37 step/s, lr: 0.0066790, acc: 0.87500
+2022-02-15 01:05:41  logger  INFO  global step 36500, epoch: 22, batch: 1052, loss: 0.40508,speed: 0.33 step/s, lr: 0.0066365, acc: 0.82812
+2022-02-15 01:06:09  logger  INFO  global step 36600, epoch: 22, batch: 1152, loss: 0.62449,speed: 0.36 step/s, lr: 0.0065940, acc: 0.65625
+2022-02-15 01:06:36  logger  INFO  global step 36700, epoch: 22, batch: 1252, loss: 0.14333,speed: 0.36 step/s, lr: 0.0065515, acc: 0.96875
+2022-02-15 01:07:06  logger  INFO  global step 36800, epoch: 22, batch: 1352, loss: 0.73643,speed: 0.34 step/s, lr: 0.0065090, acc: 0.65625
+2022-02-15 01:07:32  logger  INFO  global step 36900, epoch: 22, batch: 1452, loss: 0.43065,speed: 0.38 step/s, lr: 0.0064665, acc: 0.79688
+2022-02-15 01:08:02  logger  INFO  global step 37000, epoch: 22, batch: 1552, loss: 0.60017,speed: 0.33 step/s, lr: 0.0064240, acc: 0.75000
+2022-02-15 01:08:33  logger  INFO  global step 37100, epoch: 22, batch: 1652, loss: 0.33861,speed: 0.32 step/s, lr: 0.0063815, acc: 0.87500
+2022-02-15 01:10:04  logger  INFO  eval loss: 0.24028, accu: 0.91461
+2022-02-15 01:10:04  logger  INFO  tested : 0.91460526
+2022-02-15 01:10:21  logger  INFO  global step 37200, epoch: 23, batch: 64, loss: 0.24516,speed: 0.09 step/s, lr: 0.0063390, acc: 0.92188
+2022-02-15 01:10:48  logger  INFO  global step 37300, epoch: 23, batch: 164, loss: 0.22632,speed: 0.37 step/s, lr: 0.0062964, acc: 0.92188
+2022-02-15 01:11:19  logger  INFO  global step 37400, epoch: 23, batch: 264, loss: 0.31695,speed: 0.32 step/s, lr: 0.0062539, acc: 0.92188
+2022-02-15 01:11:50  logger  INFO  global step 37500, epoch: 23, batch: 364, loss: 0.83107,speed: 0.32 step/s, lr: 0.0062114, acc: 0.54688
+2022-02-15 01:12:21  logger  INFO  global step 37600, epoch: 23, batch: 464, loss: 0.25359,speed: 0.32 step/s, lr: 0.0061689, acc: 0.89062
+2022-02-15 01:12:50  logger  INFO  global step 37700, epoch: 23, batch: 564, loss: 0.27362,speed: 0.35 step/s, lr: 0.0061264, acc: 0.84375
+2022-02-15 01:13:21  logger  INFO  global step 37800, epoch: 23, batch: 664, loss: 0.52297,speed: 0.32 step/s, lr: 0.0060839, acc: 0.75000
+2022-02-15 01:13:51  logger  INFO  global step 37900, epoch: 23, batch: 764, loss: 0.40790,speed: 0.33 step/s, lr: 0.0060414, acc: 0.89062
+2022-02-15 01:14:22  logger  INFO  global step 38000, epoch: 23, batch: 864, loss: 0.32108,speed: 0.33 step/s, lr: 0.0059989, acc: 0.84375
+2022-02-15 01:14:50  logger  INFO  global step 38100, epoch: 23, batch: 964, loss: 0.30236,speed: 0.36 step/s, lr: 0.0059564, acc: 0.87500
+2022-02-15 01:15:18  logger  INFO  global step 38200, epoch: 23, batch: 1064, loss: 0.42275,speed: 0.35 step/s, lr: 0.0059138, acc: 0.84375
+2022-02-15 01:15:45  logger  INFO  global step 38300, epoch: 23, batch: 1164, loss: 0.77531,speed: 0.38 step/s, lr: 0.0058713, acc: 0.59375
+2022-02-15 01:16:18  logger  INFO  global step 38400, epoch: 23, batch: 1264, loss: 0.66607,speed: 0.31 step/s, lr: 0.0058288, acc: 0.62500
+2022-02-15 01:16:49  logger  INFO  global step 38500, epoch: 23, batch: 1364, loss: 0.46820,speed: 0.32 step/s, lr: 0.0057863, acc: 0.84375
+2022-02-15 01:17:18  logger  INFO  global step 38600, epoch: 23, batch: 1464, loss: 0.34445,speed: 0.34 step/s, lr: 0.0057438, acc: 0.84375
+2022-02-15 01:17:48  logger  INFO  global step 38700, epoch: 23, batch: 1564, loss: 0.23641,speed: 0.34 step/s, lr: 0.0057013, acc: 0.89062
+2022-02-15 01:18:17  logger  INFO  global step 38800, epoch: 23, batch: 1664, loss: 0.40409,speed: 0.34 step/s, lr: 0.0056588, acc: 0.82812
+2022-02-15 01:19:42  logger  INFO  eval loss: 0.23544, accu: 0.91697
+2022-02-15 01:19:42  logger  INFO  tested : 0.9169737
+2022-02-15 01:20:03  logger  INFO  global step 38900, epoch: 24, batch: 76, loss: 0.21848,speed: 0.09 step/s, lr: 0.0056163, acc: 0.92188
+2022-02-15 01:20:30  logger  INFO  global step 39000, epoch: 24, batch: 176, loss: 0.25829,speed: 0.37 step/s, lr: 0.0055738, acc: 0.89062
+2022-02-15 01:20:57  logger  INFO  global step 39100, epoch: 24, batch: 276, loss: 0.44325,speed: 0.37 step/s, lr: 0.0055312, acc: 0.79688
+2022-02-15 01:21:26  logger  INFO  global step 39200, epoch: 24, batch: 376, loss: 0.46000,speed: 0.35 step/s, lr: 0.0054887, acc: 0.84375
+2022-02-15 01:21:52  logger  INFO  global step 39300, epoch: 24, batch: 476, loss: 0.16348,speed: 0.38 step/s, lr: 0.0054462, acc: 0.93750
+2022-02-15 01:22:19  logger  INFO  global step 39400, epoch: 24, batch: 576, loss: 0.16718,speed: 0.37 step/s, lr: 0.0054037, acc: 0.93750
+2022-02-15 01:22:47  logger  INFO  global step 39500, epoch: 24, batch: 676, loss: 0.65334,speed: 0.35 step/s, lr: 0.0053612, acc: 0.67188
+2022-02-15 01:23:18  logger  INFO  global step 39600, epoch: 24, batch: 776, loss: 0.86966,speed: 0.32 step/s, lr: 0.0053187, acc: 0.51562
+2022-02-15 01:23:48  logger  INFO  global step 39700, epoch: 24, batch: 876, loss: 0.40624,speed: 0.33 step/s, lr: 0.0052762, acc: 0.84375
+2022-02-15 01:24:21  logger  INFO  global step 39800, epoch: 24, batch: 976, loss: 0.44518,speed: 0.31 step/s, lr: 0.0052337, acc: 0.82812
+2022-02-15 01:24:48  logger  INFO  global step 39900, epoch: 24, batch: 1076, loss: 0.48100,speed: 0.36 step/s, lr: 0.0051912, acc: 0.78125
+2022-02-15 01:25:15  logger  INFO  global step 40000, epoch: 24, batch: 1176, loss: 0.55803,speed: 0.37 step/s, lr: 0.0051486, acc: 0.76562
+2022-02-15 01:25:42  logger  INFO  global step 40100, epoch: 24, batch: 1276, loss: 0.24854,speed: 0.38 step/s, lr: 0.0051061, acc: 0.92188
+2022-02-15 01:26:10  logger  INFO  global step 40200, epoch: 24, batch: 1376, loss: 0.34001,speed: 0.35 step/s, lr: 0.0050636, acc: 0.90625
+2022-02-15 01:26:41  logger  INFO  global step 40300, epoch: 24, batch: 1476, loss: 0.26136,speed: 0.32 step/s, lr: 0.0050211, acc: 0.90625
+2022-02-15 01:27:10  logger  INFO  global step 40400, epoch: 24, batch: 1576, loss: 0.41388,speed: 0.35 step/s, lr: 0.0049786, acc: 0.87500
+2022-02-15 01:27:36  logger  INFO  global step 40500, epoch: 24, batch: 1676, loss: 0.30317,speed: 0.39 step/s, lr: 0.0049361, acc: 0.89062
+2022-02-15 01:28:56  logger  INFO  eval loss: 0.23417, accu: 0.91829
+2022-02-15 01:28:57  logger  INFO  tested : 0.9182895
+2022-02-15 01:29:21  logger  INFO  global step 40600, epoch: 25, batch: 88, loss: 1.06401,speed: 0.10 step/s, lr: 0.0048936, acc: 0.50000
+2022-02-15 01:29:49  logger  INFO  global step 40700, epoch: 25, batch: 188, loss: 0.35312,speed: 0.36 step/s, lr: 0.0048511, acc: 0.89062
+2022-02-15 01:30:19  logger  INFO  global step 40800, epoch: 25, batch: 288, loss: 0.80656,speed: 0.34 step/s, lr: 0.0048085, acc: 0.65625
+2022-02-15 01:30:46  logger  INFO  global step 40900, epoch: 25, batch: 388, loss: 0.38101,speed: 0.37 step/s, lr: 0.0047660, acc: 0.87500
+2022-02-15 01:31:14  logger  INFO  global step 41000, epoch: 25, batch: 488, loss: 0.69666,speed: 0.35 step/s, lr: 0.0047235, acc: 0.65625
+2022-02-15 01:31:43  logger  INFO  global step 41100, epoch: 25, batch: 588, loss: 0.55087,speed: 0.35 step/s, lr: 0.0046810, acc: 0.71875
+2022-02-15 01:32:08  logger  INFO  global step 41200, epoch: 25, batch: 688, loss: 0.67132,speed: 0.39 step/s, lr: 0.0046385, acc: 0.64062
+2022-02-15 01:32:36  logger  INFO  global step 41300, epoch: 25, batch: 788, loss: 0.32310,speed: 0.36 step/s, lr: 0.0045960, acc: 0.87500
+2022-02-15 01:33:05  logger  INFO  global step 41400, epoch: 25, batch: 888, loss: 0.32197,speed: 0.35 step/s, lr: 0.0045535, acc: 0.92188
+2022-02-15 01:33:32  logger  INFO  global step 41500, epoch: 25, batch: 988, loss: 0.26520,speed: 0.37 step/s, lr: 0.0045110, acc: 0.92188
+2022-02-15 01:34:00  logger  INFO  global step 41600, epoch: 25, batch: 1088, loss: 0.31878,speed: 0.35 step/s, lr: 0.0044685, acc: 0.89062
+2022-02-15 01:34:30  logger  INFO  global step 41700, epoch: 25, batch: 1188, loss: 0.54775,speed: 0.34 step/s, lr: 0.0044259, acc: 0.84375
+2022-02-15 01:34:56  logger  INFO  global step 41800, epoch: 25, batch: 1288, loss: 0.34212,speed: 0.38 step/s, lr: 0.0043834, acc: 0.87500
+2022-02-15 01:35:23  logger  INFO  global step 41900, epoch: 25, batch: 1388, loss: 0.63826,speed: 0.38 step/s, lr: 0.0043409, acc: 0.68750
+2022-02-15 01:35:49  logger  INFO  global step 42000, epoch: 25, batch: 1488, loss: 0.52326,speed: 0.38 step/s, lr: 0.0042984, acc: 0.82812
+2022-02-15 01:36:20  logger  INFO  global step 42100, epoch: 25, batch: 1588, loss: 0.84494,speed: 0.33 step/s, lr: 0.0042559, acc: 0.62500
+2022-02-15 01:36:51  logger  INFO  global step 42200, epoch: 25, batch: 1688, loss: 0.91637,speed: 0.32 step/s, lr: 0.0042134, acc: 0.50000
+2022-02-15 01:38:09  logger  INFO  eval loss: 0.23681, accu: 0.91671
+2022-02-15 01:38:09  logger  INFO  tested : 0.91671056
+2022-02-15 01:38:37  logger  INFO  global step 42300, epoch: 26, batch: 100, loss: 0.44173,speed: 0.09 step/s, lr: 0.0041709, acc: 0.81250
+2022-02-15 01:39:03  logger  INFO  global step 42400, epoch: 26, batch: 200, loss: 0.79817,speed: 0.38 step/s, lr: 0.0041284, acc: 0.60938
+2022-02-15 01:39:30  logger  INFO  global step 42500, epoch: 26, batch: 300, loss: 0.41491,speed: 0.37 step/s, lr: 0.0040859, acc: 0.82812
+2022-02-15 01:39:59  logger  INFO  global step 42600, epoch: 26, batch: 400, loss: 0.38265,speed: 0.34 step/s, lr: 0.0040433, acc: 0.87500
+2022-02-15 01:40:27  logger  INFO  global step 42700, epoch: 26, batch: 500, loss: 0.37792,speed: 0.37 step/s, lr: 0.0040008, acc: 0.87500
+2022-02-15 01:40:57  logger  INFO  global step 42800, epoch: 26, batch: 600, loss: 0.29940,speed: 0.33 step/s, lr: 0.0039583, acc: 0.87500
+2022-02-15 01:41:25  logger  INFO  global step 42900, epoch: 26, batch: 700, loss: 0.39508,speed: 0.35 step/s, lr: 0.0039158, acc: 0.84375
+2022-02-15 01:41:52  logger  INFO  global step 43000, epoch: 26, batch: 800, loss: 0.37169,speed: 0.38 step/s, lr: 0.0038733, acc: 0.84375
+2022-02-15 01:42:20  logger  INFO  global step 43100, epoch: 26, batch: 900, loss: 0.33007,speed: 0.35 step/s, lr: 0.0038308, acc: 0.87500
+2022-02-15 01:42:52  logger  INFO  global step 43200, epoch: 26, batch: 1000, loss: 0.47466,speed: 0.32 step/s, lr: 0.0037883, acc: 0.79688
+2022-02-15 01:43:25  logger  INFO  global step 43300, epoch: 26, batch: 1100, loss: 0.64276,speed: 0.31 step/s, lr: 0.0037458, acc: 0.67188
+2022-02-15 01:43:57  logger  INFO  global step 43400, epoch: 26, batch: 1200, loss: 0.26187,speed: 0.31 step/s, lr: 0.0037033, acc: 0.89062
+2022-02-15 01:44:25  logger  INFO  global step 43500, epoch: 26, batch: 1300, loss: 0.47951,speed: 0.35 step/s, lr: 0.0036607, acc: 0.82812
+2022-02-15 01:44:56  logger  INFO  global step 43600, epoch: 26, batch: 1400, loss: 0.24351,speed: 0.33 step/s, lr: 0.0036182, acc: 0.96875
+2022-02-15 01:45:26  logger  INFO  global step 43700, epoch: 26, batch: 1500, loss: 0.68053,speed: 0.32 step/s, lr: 0.0035757, acc: 0.68750
+2022-02-15 01:45:54  logger  INFO  global step 43800, epoch: 26, batch: 1600, loss: 0.74951,speed: 0.36 step/s, lr: 0.0035332, acc: 0.64062
+2022-02-15 01:47:36  logger  INFO  eval loss: 0.22625, accu: 0.92092
+2022-02-15 01:47:36  logger  INFO  tested : 0.920921
+2022-02-15 01:47:40  logger  INFO  global step 43900, epoch: 27, batch: 12, loss: 0.59411,speed: 0.09 step/s, lr: 0.0034907, acc: 0.71875
+2022-02-15 01:48:07  logger  INFO  global step 44000, epoch: 27, batch: 112, loss: 0.25904,speed: 0.37 step/s, lr: 0.0034482, acc: 0.89062
+2022-02-15 01:48:34  logger  INFO  global step 44100, epoch: 27, batch: 212, loss: 0.46632,speed: 0.38 step/s, lr: 0.0034057, acc: 0.78125
+2022-02-15 01:49:03  logger  INFO  global step 44200, epoch: 27, batch: 312, loss: 0.33573,speed: 0.34 step/s, lr: 0.0033632, acc: 0.87500
+2022-02-15 01:49:31  logger  INFO  global step 44300, epoch: 27, batch: 412, loss: 0.44028,speed: 0.35 step/s, lr: 0.0033206, acc: 0.79688
+2022-02-15 01:49:59  logger  INFO  global step 44400, epoch: 27, batch: 512, loss: 0.22493,speed: 0.37 step/s, lr: 0.0032781, acc: 0.90625
+2022-02-15 01:50:30  logger  INFO  global step 44500, epoch: 27, batch: 612, loss: 0.47048,speed: 0.32 step/s, lr: 0.0032356, acc: 0.78125
+2022-02-15 01:50:58  logger  INFO  global step 44600, epoch: 27, batch: 712, loss: 0.71636,speed: 0.35 step/s, lr: 0.0031931, acc: 0.57812
+2022-02-15 01:51:27  logger  INFO  global step 44700, epoch: 27, batch: 812, loss: 0.32958,speed: 0.35 step/s, lr: 0.0031506, acc: 0.87500
+2022-02-15 01:51:56  logger  INFO  global step 44800, epoch: 27, batch: 912, loss: 0.31397,speed: 0.35 step/s, lr: 0.0031081, acc: 0.85938
+2022-02-15 01:52:25  logger  INFO  global step 44900, epoch: 27, batch: 1012, loss: 0.41676,speed: 0.34 step/s, lr: 0.0030656, acc: 0.75000
+2022-02-15 01:52:55  logger  INFO  global step 45000, epoch: 27, batch: 1112, loss: 0.31267,speed: 0.33 step/s, lr: 0.0030231, acc: 0.92188
+2022-02-15 01:53:25  logger  INFO  global step 45100, epoch: 27, batch: 1212, loss: 0.47976,speed: 0.33 step/s, lr: 0.0029806, acc: 0.84375
+2022-02-15 01:53:55  logger  INFO  global step 45200, epoch: 27, batch: 1312, loss: 0.66618,speed: 0.33 step/s, lr: 0.0029380, acc: 0.64062
+2022-02-15 01:54:22  logger  INFO  global step 45300, epoch: 27, batch: 1412, loss: 0.83586,speed: 0.38 step/s, lr: 0.0028955, acc: 0.60938
+2022-02-15 01:54:48  logger  INFO  global step 45400, epoch: 27, batch: 1512, loss: 0.48903,speed: 0.38 step/s, lr: 0.0028530, acc: 0.84375
+2022-02-15 01:55:18  logger  INFO  global step 45500, epoch: 27, batch: 1612, loss: 0.24207,speed: 0.33 step/s, lr: 0.0028105, acc: 0.92188
+2022-02-15 01:57:00  logger  INFO  eval loss: 0.22681, accu: 0.92092
+2022-02-15 01:57:00  logger  INFO  tested : 0.920921
+2022-02-15 01:57:07  logger  INFO  global step 45600, epoch: 28, batch: 24, loss: 0.61052,speed: 0.09 step/s, lr: 0.0027680, acc: 0.70312
+2022-02-15 01:57:33  logger  INFO  global step 45700, epoch: 28, batch: 124, loss: 0.49061,speed: 0.38 step/s, lr: 0.0027255, acc: 0.85938
+2022-02-15 01:57:59  logger  INFO  global step 45800, epoch: 28, batch: 224, loss: 0.43244,speed: 0.38 step/s, lr: 0.0026830, acc: 0.84375
+2022-02-15 01:58:26  logger  INFO  global step 45900, epoch: 28, batch: 324, loss: 0.63638,speed: 0.37 step/s, lr: 0.0026405, acc: 0.65625
+2022-02-15 01:58:56  logger  INFO  global step 46000, epoch: 28, batch: 424, loss: 0.83156,speed: 0.33 step/s, lr: 0.0025980, acc: 0.62500
+2022-02-15 01:59:27  logger  INFO  global step 46100, epoch: 28, batch: 524, loss: 0.60879,speed: 0.32 step/s, lr: 0.0025554, acc: 0.78125
+2022-02-15 01:59:55  logger  INFO  global step 46200, epoch: 28, batch: 624, loss: 0.87024,speed: 0.36 step/s, lr: 0.0025129, acc: 0.65625
+2022-02-15 02:00:22  logger  INFO  global step 46300, epoch: 28, batch: 724, loss: 0.44508,speed: 0.38 step/s, lr: 0.0024704, acc: 0.82812
+2022-02-15 02:00:51  logger  INFO  global step 46400, epoch: 28, batch: 824, loss: 0.19857,speed: 0.34 step/s, lr: 0.0024279, acc: 0.92188
+2022-02-15 02:01:21  logger  INFO  global step 46500, epoch: 28, batch: 924, loss: 0.64081,speed: 0.33 step/s, lr: 0.0023854, acc: 0.67188
+2022-02-15 02:01:48  logger  INFO  global step 46600, epoch: 28, batch: 1024, loss: 0.21587,speed: 0.38 step/s, lr: 0.0023429, acc: 0.92188
+2022-02-15 02:02:16  logger  INFO  global step 46700, epoch: 28, batch: 1124, loss: 0.40831,speed: 0.35 step/s, lr: 0.0023004, acc: 0.87500
+2022-02-15 02:02:42  logger  INFO  global step 46800, epoch: 28, batch: 1224, loss: 0.24082,speed: 0.39 step/s, lr: 0.0022579, acc: 0.95312
+2022-02-15 02:03:12  logger  INFO  global step 46900, epoch: 28, batch: 1324, loss: 0.64921,speed: 0.33 step/s, lr: 0.0022154, acc: 0.78125
+2022-02-15 02:03:41  logger  INFO  global step 47000, epoch: 28, batch: 1424, loss: 0.32889,speed: 0.35 step/s, lr: 0.0021728, acc: 0.85938
+2022-02-15 02:04:09  logger  INFO  global step 47100, epoch: 28, batch: 1524, loss: 0.78196,speed: 0.36 step/s, lr: 0.0021303, acc: 0.65625
+2022-02-15 02:04:37  logger  INFO  global step 47200, epoch: 28, batch: 1624, loss: 0.24277,speed: 0.36 step/s, lr: 0.0020878, acc: 0.89062
+2022-02-15 02:06:14  logger  INFO  eval loss: 0.22756, accu: 0.91895
+2022-02-15 02:06:14  logger  INFO  tested : 0.91894734
+2022-02-15 02:06:24  logger  INFO  global step 47300, epoch: 29, batch: 36, loss: 0.38623,speed: 0.09 step/s, lr: 0.0020453, acc: 0.89062
+2022-02-15 02:06:52  logger  INFO  global step 47400, epoch: 29, batch: 136, loss: 0.66570,speed: 0.36 step/s, lr: 0.0020028, acc: 0.70312
+2022-02-15 02:07:23  logger  INFO  global step 47500, epoch: 29, batch: 236, loss: 0.17720,speed: 0.33 step/s, lr: 0.0019603, acc: 0.90625
+2022-02-15 02:07:54  logger  INFO  global step 47600, epoch: 29, batch: 336, loss: 0.79441,speed: 0.32 step/s, lr: 0.0019178, acc: 0.64062
+2022-02-15 02:08:25  logger  INFO  global step 47700, epoch: 29, batch: 436, loss: 0.38743,speed: 0.32 step/s, lr: 0.0018753, acc: 0.82812
+2022-02-15 02:08:52  logger  INFO  global step 47800, epoch: 29, batch: 536, loss: 0.36241,speed: 0.38 step/s, lr: 0.0018327, acc: 0.85938
+2022-02-15 02:09:20  logger  INFO  global step 47900, epoch: 29, batch: 636, loss: 0.32225,speed: 0.35 step/s, lr: 0.0017902, acc: 0.92188
+2022-02-15 02:09:52  logger  INFO  global step 48000, epoch: 29, batch: 736, loss: 0.40922,speed: 0.31 step/s, lr: 0.0017477, acc: 0.82812
+2022-02-15 02:10:21  logger  INFO  global step 48100, epoch: 29, batch: 836, loss: 0.72591,speed: 0.35 step/s, lr: 0.0017052, acc: 0.56250
+2022-02-15 02:10:48  logger  INFO  global step 48200, epoch: 29, batch: 936, loss: 0.36393,speed: 0.36 step/s, lr: 0.0016627, acc: 0.90625
+2022-02-15 02:11:19  logger  INFO  global step 48300, epoch: 29, batch: 1036, loss: 0.45687,speed: 0.33 step/s, lr: 0.0016202, acc: 0.82812
+2022-02-15 02:11:48  logger  INFO  global step 48400, epoch: 29, batch: 1136, loss: 0.33272,speed: 0.34 step/s, lr: 0.0015777, acc: 0.87500
+2022-02-15 02:12:17  logger  INFO  global step 48500, epoch: 29, batch: 1236, loss: 0.28819,speed: 0.35 step/s, lr: 0.0015352, acc: 0.85938
+2022-02-15 02:12:44  logger  INFO  global step 48600, epoch: 29, batch: 1336, loss: 0.65953,speed: 0.37 step/s, lr: 0.0014927, acc: 0.65625
+2022-02-15 02:13:13  logger  INFO  global step 48700, epoch: 29, batch: 1436, loss: 0.67809,speed: 0.34 step/s, lr: 0.0014501, acc: 0.65625
+2022-02-15 02:13:40  logger  INFO  global step 48800, epoch: 29, batch: 1536, loss: 0.61512,speed: 0.37 step/s, lr: 0.0014076, acc: 0.68750
+2022-02-15 02:14:11  logger  INFO  global step 48900, epoch: 29, batch: 1636, loss: 0.46084,speed: 0.33 step/s, lr: 0.0013651, acc: 0.84375
+2022-02-15 02:15:46  logger  INFO  eval loss: 0.22585, accu: 0.91961
+2022-02-15 02:15:46  logger  INFO  tested : 0.91960526
+2022-02-15 02:16:00  logger  INFO  global step 49000, epoch: 30, batch: 48, loss: 0.44721,speed: 0.09 step/s, lr: 0.0013226, acc: 0.79688
+2022-02-15 02:16:27  logger  INFO  global step 49100, epoch: 30, batch: 148, loss: 0.40132,speed: 0.38 step/s, lr: 0.0012801, acc: 0.87500
+2022-02-15 02:16:53  logger  INFO  global step 49200, epoch: 30, batch: 248, loss: 0.34057,speed: 0.38 step/s, lr: 0.0012376, acc: 0.90625
+2022-02-15 02:17:19  logger  INFO  global step 49300, epoch: 30, batch: 348, loss: 0.31299,speed: 0.38 step/s, lr: 0.0011951, acc: 0.84375
+2022-02-15 02:17:45  logger  INFO  global step 49400, epoch: 30, batch: 448, loss: 0.73375,speed: 0.38 step/s, lr: 0.0011526, acc: 0.57812
+2022-02-15 02:18:11  logger  INFO  global step 49500, epoch: 30, batch: 548, loss: 0.16229,speed: 0.38 step/s, lr: 0.0011101, acc: 0.95312
+2022-02-15 02:18:37  logger  INFO  global step 49600, epoch: 30, batch: 648, loss: 0.30633,speed: 0.39 step/s, lr: 0.0010675, acc: 0.89062
+2022-02-15 02:19:04  logger  INFO  global step 49700, epoch: 30, batch: 748, loss: 0.28888,speed: 0.37 step/s, lr: 0.0010250, acc: 0.93750
+2022-02-15 02:19:32  logger  INFO  global step 49800, epoch: 30, batch: 848, loss: 0.64387,speed: 0.36 step/s, lr: 0.0009825, acc: 0.70312
+2022-02-15 02:20:03  logger  INFO  global step 49900, epoch: 30, batch: 948, loss: 0.46547,speed: 0.32 step/s, lr: 0.0009400, acc: 0.89062
+2022-02-15 02:20:32  logger  INFO  global step 50000, epoch: 30, batch: 1048, loss: 0.23419,speed: 0.35 step/s, lr: 0.0008975, acc: 0.92188
+2022-02-15 02:21:00  logger  INFO  global step 50100, epoch: 30, batch: 1148, loss: 0.42515,speed: 0.36 step/s, lr: 0.0008550, acc: 0.84375
+2022-02-15 02:21:28  logger  INFO  global step 50200, epoch: 30, batch: 1248, loss: 0.39414,speed: 0.35 step/s, lr: 0.0008125, acc: 0.82812
+2022-02-15 02:21:57  logger  INFO  global step 50300, epoch: 30, batch: 1348, loss: 0.42994,speed: 0.35 step/s, lr: 0.0007700, acc: 0.87500
+2022-02-15 02:22:23  logger  INFO  global step 50400, epoch: 30, batch: 1448, loss: 0.33387,speed: 0.38 step/s, lr: 0.0007275, acc: 0.93750
+2022-02-15 02:22:50  logger  INFO  global step 50500, epoch: 30, batch: 1548, loss: 0.26522,speed: 0.36 step/s, lr: 0.0006849, acc: 0.89062
+2022-02-15 02:23:19  logger  INFO  global step 50600, epoch: 30, batch: 1648, loss: 0.76367,speed: 0.35 step/s, lr: 0.0006424, acc: 0.60938
+2022-02-15 02:24:48  logger  INFO  eval loss: 0.22576, accu: 0.92013
+2022-02-15 02:24:48  logger  INFO  tested : 0.92013156
+2022-02-15 02:24:48  logger  INFO  best accu: 0.920921

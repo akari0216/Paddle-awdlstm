@@ -17,18 +17,17 @@
 
 ## 开始
 ### 1.预训练权重下载
-链接：https://pan.baidu.com/s/1eA0XC8T3g6-bXvg20WyHnQ 
-提取码：q136
+链接：https://pan.baidu.com/s/1wTaAFGFKKlHoFI92Pf4sIw 
+提取码：wtrq
 
 Wikitext-103是超过 1 亿个语句的数据合集，全部从维基百科的 Good 与 Featured 文章中提炼出来。广泛用于语言建模，当中 包括 fastai 库和 ULMFiT 算法中经常用到的预训练模型。该权重为基于此数据集上预训练后得到的
-权重包含了fwd和bwd两个权重
+权重包含了已转换的fwd和bwd两个权重
 
 
 ### 2.模型微调
-
-### 3.数据集验证
 AG News Dataset 拥有超过 100 万篇新闻文章，其中包含 496,835 条 AG 新闻语料库中超过 2000 个新闻源的文章，该数据集仅采用了标题和描述字段，每种类别均拥有 30,000 个训练样本和 1900 个测试样本。
 
+本次微调过程均在AIStudio上进行，使用GPU模式进行
 步骤：
 1.进入bash执行
 pip install paddlepaddle
@@ -36,11 +35,32 @@ pip install paddlenlp
 pip install spacy
 pip install --upgrade numpy
 
-2.下载预训练权重，将wt103-fwd2.pdparams放入config文件夹
+2.下载预训练权重，将converted_fwd.pdparams和converted_bwd.pdparams放入根目录
 
-3.去到各py文件手动调整路径
+3.进入bash，执行命令sh run_pretrain.sh
+在每一个阶段会生成当前最佳acc的权重并且保存，作为下一个阶段微调的预加载权重
+所有的language model finetune和text classifier finetune的日志都记录在log文件夹下
 
-4.进入bash 分别执行
-python lm_data.py
-python cls_data.py
-python test_data.py
+### 3.数据集验证
+进入bash执行
+python merge_preds.py
+分别对converted_fwd.pdparams和converted_bwd.pdparams的微调结果生成对应的结果文件
+然后再执行
+python create_final_preds.py
+对两个结果文件进行融合，得到最终的预测
+
+由于时间关系，只有对converted_fwd.pdparams微调后的预测结果，
+该权重对测试集的预测acc如下：
+
+## fwd预测效果
+<p align="center">
+    <img src="images/fwd_res.png" width="100%" />
+</p>
+
+而若在与converted_bwd.pdparams微调后融合的结果下，理论上能提升0.5-0.7pp
+## 论文理论效果
+<p align="center">
+    <img src="images/combine.png" width="100%" />
+</p>
+
+故部分达到了论文的精度要求
