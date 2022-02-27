@@ -64,7 +64,7 @@ python create_final_preds.py
 </p>
 
 
-可使用已微调的forward权重和backward权重来查看效果
+可使用已微调的forward权重和backward权重来查看效果。
 已微调权重链接下载：
 链接：https://pan.baidu.com/s/18UB_irYi6yRZJMsZKUwC9w 
 提取码：0wyy 
