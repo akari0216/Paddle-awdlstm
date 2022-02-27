@@ -63,4 +63,16 @@ python create_final_preds.py
     <img src="images/combine.png" width="100%" />
 </p>
 
-故部分达到了论文的精度要求
+
+可使用已微调的forward权重和backward权重来查看效果
+已微调权重链接下载：
+链接：https://pan.baidu.com/s/18UB_irYi6yRZJMsZKUwC9w 
+提取码：0wyy 
+
+将已微调权重放在根目录后，执行命令sh run_final_pred.sh
+## 最终融合效果
+<p align="center">
+    <img src="images/merge_final.png" width="100%" />
+</p>
+
+在一定误差范围内达到论文理论效果

@@ -24,5 +24,3 @@ print("fwd",  (fwd == labels.flatten()).astype("float32").mean())
 
 bwd = np.argmax(bwd, axis=-1)
 print("bwd",  (bwd == labels.flatten()).astype("float32").mean())
-
-print("fwd -> bwd",   (fwd == bwd).astype("float32").mean())
